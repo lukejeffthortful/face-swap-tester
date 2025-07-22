@@ -1,0 +1,13 @@
+{
+  "timestamp": "20250721_214547",
+  "api_version": "v2",
+  "source_faces_index": 0,
+  "input_faces_index": 0,
+  "face_restore": "codeformer-v0.1.0.pth",
+  "generation_time": "3.484",
+  "remaining_credits": "615.9801263243",
+  "request_id": "1738cca3183200a77b641131fc847c23",
+  "image_metadata": "{'height': 1536, 'samples': 1, 'width': 1024}",
+  "content_type": "image/jpeg",
+  "content_length": "562740"
+}

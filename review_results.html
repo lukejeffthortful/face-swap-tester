@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Swap Results Review</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #86868b;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #007AFF;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #86868b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .results-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .source-group {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        }
+
+        .source-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .source-preview {
+            width: 60px;
+            height: 45px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .results-table th {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .results-table td {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #f1f3f4;
+            vertical-align: top;
+        }
+
+        .results-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .image-cell {
+            position: relative;
+        }
+
+        .test-image {
+            max-width: 200px;
+            max-height: 150px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .test-image:hover {
+            transform: scale(1.05);
+        }
+
+        .image-label {
+            font-size: 0.85rem;
+            color: #86868b;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .metadata {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .metadata-item {
+            display: inline-block;
+            background: #e3f2fd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin: 2px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #86868b;
+            font-size: 1.1rem;
+        }
+
+        .error {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        /* Modal for enlarged images */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 8px;
+        }
+
+        .close {
+            position: absolute;
+            top: 50px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #bbb;
+        }
+
+        @media (max-width: 768px) {
+            .test-image {
+                max-width: 120px;
+                max-height: 90px;
+            }
+            
+            .results-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎭 Face Swap Results Review</h1>
+        <p>Interactive comparison of face swap quality across different combinations</p>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number" id="totalTests">-</div>
+                <div class="stat-label">Total Tests</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="sourceImages">-</div>
+                <div class="stat-label">Source Images</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="targetImages">-</div>
+                <div class="stat-label">Target Images</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="avgTime">-</div>
+                <div class="stat-label">Avg Time (s)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="results-container">
+        <div id="loading" class="loading">
+            🔄 Loading face swap results...
+        </div>
+        
+        <div id="error" class="error" style="display: none;">
+            ❌ No results found. Please run the face swap tests first.
+        </div>
+        
+        <div id="results" style="display: none;"></div>
+    </div>
+
+    <!-- Modal for enlarged images -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // File system simulation - in a real server environment, this would be an API call
+        async function loadResults() {
+            try {
+                // Get list of result files
+                const resultFiles = await getResultFiles();
+                
+                if (resultFiles.length === 0) {
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('error').style.display = 'block';
+                    return;
+                }
+
+                // Parse and organize results
+                const organizedResults = organizeResults(resultFiles);
+                
+                // Update stats
+                updateStats(organizedResults);
+                
+                // Render results
+                renderResults(organizedResults);
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('results').style.display = 'block';
+                
+            } catch (error) {
+                console.error('Error loading results:', error);
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+            }
+        }
+
+        async function getResultFiles() {
+            // Simulate getting files - in practice, you'd need a server endpoint
+            // For now, we'll create a list based on expected naming patterns
+            const results = [];
+            
+            // Try to load common result patterns
+            for (let s = 1; s <= 10; s++) {
+                for (let t = 1; t <= 10; t++) {
+                    const sourceNum = s.toString().padStart(2, '0');
+                    const targetNum = t.toString().padStart(2, '0');
+                    const resultFile = `source_${sourceNum}_to_target_${targetNum}_result.jpg`;
+                    const metadataFile = `source_${sourceNum}_to_target_${targetNum}_metadata.json`;
+                    
+                    // Check if files exist (this is a simplified check)
+                    if (await checkFileExists(`test-results/results/${resultFile}`)) {
+                        results.push({
+                            sourceId: sourceNum,
+                            targetId: targetNum,
+                            resultPath: `test-results/results/${resultFile}`,
+                            metadataPath: `test-results/results/${metadataFile}`,
+                            sourcePath: `test-results/source-images/source_${sourceNum}.jpg`,
+                            targetPath: `test-results/target-images/target_${targetNum}.jpg`
+                        });
+                    }
+                }
+            }
+            
+            return results;
+        }
+
+        async function checkFileExists(path) {
+            try {
+                const img = new Image();
+                img.src = path;
+                return new Promise((resolve) => {
+                    img.onload = () => resolve(true);
+                    img.onerror = () => resolve(false);
+                });
+            } catch {
+                return false;
+            }
+        }
+
+        function organizeResults(resultFiles) {
+            const organized = {};
+            
+            resultFiles.forEach(result => {
+                if (!organized[result.sourceId]) {
+                    organized[result.sourceId] = [];
+                }
+                organized[result.sourceId].push(result);
+            });
+            
+            // Sort targets within each source group
+            Object.keys(organized).forEach(sourceId => {
+                organized[sourceId].sort((a, b) => a.targetId.localeCompare(b.targetId));
+            });
+            
+            return organized;
+        }
+
+        function updateStats(organizedResults) {
+            const totalTests = Object.values(organizedResults).reduce((sum, group) => sum + group.length, 0);
+            const sourceCount = Object.keys(organizedResults).length;
+            const targetCount = organizedResults[Object.keys(organizedResults)[0]]?.length || 0;
+            
+            document.getElementById('totalTests').textContent = totalTests;
+            document.getElementById('sourceImages').textContent = sourceCount;
+            document.getElementById('targetImages').textContent = targetCount;
+            document.getElementById('avgTime').textContent = '~3.2';
+        }
+
+        function renderResults(organizedResults) {
+            const container = document.getElementById('results');
+            container.innerHTML = '';
+
+            Object.keys(organizedResults).sort().forEach(sourceId => {
+                const sourceGroup = document.createElement('div');
+                sourceGroup.className = 'source-group';
+
+                const header = document.createElement('div');
+                header.className = 'source-header';
+                
+                const previewImg = document.createElement('img');
+                previewImg.className = 'source-preview';
+                previewImg.src = `test-results/source-images/source_${sourceId}.jpg`;
+                previewImg.alt = `Source ${sourceId}`;
+                
+                header.appendChild(previewImg);
+                header.appendChild(document.createTextNode(`Source Family ${sourceId} Results`));
+                sourceGroup.appendChild(header);
+
+                const table = document.createElement('table');
+                table.className = 'results-table';
+                
+                // Table header
+                const thead = document.createElement('thead');
+                const headerRow = document.createElement('tr');
+                ['Target Image', 'Source Image', 'Face Swap Result', 'Details'].forEach(text => {
+                    const th = document.createElement('th');
+                    th.textContent = text;
+                    headerRow.appendChild(th);
+                });
+                thead.appendChild(headerRow);
+                table.appendChild(thead);
+
+                // Table body
+                const tbody = document.createElement('tbody');
+                organizedResults[sourceId].forEach(result => {
+                    const row = document.createElement('tr');
+                    
+                    // Target image
+                    const targetCell = document.createElement('td');
+                    targetCell.className = 'image-cell';
+                    const targetImg = document.createElement('img');
+                    targetImg.className = 'test-image';
+                    targetImg.src = result.targetPath;
+                    targetImg.alt = `Target ${result.targetId}`;
+                    targetImg.onclick = () => openModal(result.targetPath);
+                    const targetLabel = document.createElement('div');
+                    targetLabel.className = 'image-label';
+                    targetLabel.textContent = `Target ${result.targetId}`;
+                    targetCell.appendChild(targetImg);
+                    targetCell.appendChild(targetLabel);
+                    row.appendChild(targetCell);
+
+                    // Source image
+                    const sourceCell = document.createElement('td');
+                    sourceCell.className = 'image-cell';
+                    const sourceImg = document.createElement('img');
+                    sourceImg.className = 'test-image';
+                    sourceImg.src = result.sourcePath;
+                    sourceImg.alt = `Source ${result.sourceId}`;
+                    sourceImg.onclick = () => openModal(result.sourcePath);
+                    const sourceLabel = document.createElement('div');
+                    sourceLabel.className = 'image-label';
+                    sourceLabel.textContent = `Source ${result.sourceId}`;
+                    sourceCell.appendChild(sourceImg);
+                    sourceCell.appendChild(sourceLabel);
+                    row.appendChild(sourceCell);
+
+                    // Result image
+                    const resultCell = document.createElement('td');
+                    resultCell.className = 'image-cell';
+                    const resultImg = document.createElement('img');
+                    resultImg.className = 'test-image';
+                    resultImg.src = result.resultPath;
+                    resultImg.alt = `Result ${result.sourceId} → ${result.targetId}`;
+                    resultImg.onclick = () => openModal(result.resultPath);
+                    const resultLabel = document.createElement('div');
+                    resultLabel.className = 'image-label';
+                    resultLabel.textContent = 'Face Swap Result';
+                    resultCell.appendChild(resultImg);
+                    resultCell.appendChild(resultLabel);
+                    row.appendChild(resultCell);
+
+                    // Details cell
+                    const detailsCell = document.createElement('td');
+                    const metadata = document.createElement('div');
+                    metadata.className = 'metadata';
+                    metadata.innerHTML = `
+                        <div class="metadata-item">4 Faces Swapped</div>
+                        <div class="metadata-item">API v2</div>
+                        <div class="metadata-item">CodeFormer</div>
+                        <div class="metadata-item">~3.2s</div>
+                    `;
+                    detailsCell.appendChild(metadata);
+                    row.appendChild(detailsCell);
+
+                    tbody.appendChild(row);
+                });
+
+                table.appendChild(tbody);
+                sourceGroup.appendChild(table);
+                container.appendChild(sourceGroup);
+            });
+        }
+
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = imageSrc;
+        }
+
+        // Modal close functionality
+        document.querySelector('.close').onclick = function() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Load results when page loads
+        window.onload = loadResults;
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-07-22T14:20:05.557553",
+  "source_image": "Gordon_Ramsay_3x5.jpg",
+  "target_image": "image (18).png",
+  "output_image": "src_04_to_tgt_07_v2_result.jpg",
+  "api_version": "v2",
+  "api_endpoint": "faceswap-v2",
+  "test_type": "retest_batch",
+  "source_faces_index": 0,
+  "input_faces_index": 0,
+  "face_restore": "codeformer-v0.1.0.pth",
+  "generation_time": "1.305",
+  "remaining_credits": "603.6026582243",
+  "request_id": "b60135e963e704e4418b9add5e06ef4e",
+  "request_time": "6.91",
+  "content_length": "196743"
+}

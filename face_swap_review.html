@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Swap Results Review</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #86868b;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #007AFF;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #86868b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .results-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .source-group {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+        }
+
+        .source-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .source-preview {
+            width: 60px;
+            height: 45px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .results-table th {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .results-table td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #f1f3f4;
+            vertical-align: top;
+        }
+
+        .results-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .image-cell {
+            position: relative;
+            width: 25%;
+        }
+
+        .test-image {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .test-image:hover {
+            transform: scale(1.02);
+        }
+
+        .image-label {
+            font-size: 0.8rem;
+            color: #86868b;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .metadata {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .metadata-item {
+            display: inline-block;
+            background: #e3f2fd;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin: 2px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 8px;
+        }
+
+        .close {
+            position: absolute;
+            top: 50px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #bbb;
+        }
+
+        @media (max-width: 768px) {
+            .test-image {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .results-table td {
+                padding: 5px;
+            }
+            
+            .image-cell {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎭 Face Swap Results Review</h1>
+        <p>Interactive comparison of face swap quality across different combinations</p>
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Total Tests</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Source Images</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Target Images</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3.0</div>
+                <div class="stat-label">Avg Time (s)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="results-container">
+        <div class="source-group">
+            <div class="source-header">
+                <img class="source-preview" src="test-results/source-images/source_01.jpg" alt="Source 01">
+                Source Family 01 Results (3 combinations)
+            </div>
+            
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Target Image</th>
+                        <th>Source Image</th>
+                        <th>Face Swap Result</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/target-images/target_01.jpg" alt="Target 01" onclick="openModal('test-results/target-images/target_01.jpg')">
+                            <div class="image-label">Target 01</div>
+                        </td>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/source-images/source_01.jpg" alt="Source 01" onclick="openModal('test-results/source-images/source_01.jpg')">
+                            <div class="image-label">Source 01</div>
+                        </td>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/results/source_01_to_target_01_result.jpg" alt="Result 01 → 01" onclick="openModal('test-results/results/source_01_to_target_01_result.jpg')">
+                            <div class="image-label">Face Swap Result</div>
+                        </td>
+                        <td>
+                            <div class="metadata">
+                                <div class="metadata-item">4 Faces Swapped</div>
+                                <div class="metadata-item">API v2</div>
+                                <div class="metadata-item">CodeFormer</div>
+                                <div class="metadata-item">3.214s</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/target-images/target_02.jpg" alt="Target 02" onclick="openModal('test-results/target-images/target_02.jpg')">
+                            <div class="image-label">Target 02</div>
+                        </td>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/source-images/source_01.jpg" alt="Source 01" onclick="openModal('test-results/source-images/source_01.jpg')">
+                            <div class="image-label">Source 01</div>
+                        </td>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/results/source_01_to_target_02_result.jpg" alt="Result 01 → 02" onclick="openModal('test-results/results/source_01_to_target_02_result.jpg')">
+                            <div class="image-label">Face Swap Result</div>
+                        </td>
+                        <td>
+                            <div class="metadata">
+                                <div class="metadata-item">4 Faces Swapped</div>
+                                <div class="metadata-item">API v2</div>
+                                <div class="metadata-item">CodeFormer</div>
+                                <div class="metadata-item">2.712s</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/target-images/target_03.jpg" alt="Target 03" onclick="openModal('test-results/target-images/target_03.jpg')">
+                            <div class="image-label">Target 03</div>
+                        </td>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/source-images/source_01.jpg" alt="Source 01" onclick="openModal('test-results/source-images/source_01.jpg')">
+                            <div class="image-label">Source 01</div>
+                        </td>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/results/source_01_to_target_03_result.jpg" alt="Result 01 → 03" onclick="openModal('test-results/results/source_01_to_target_03_result.jpg')">
+                            <div class="image-label">Face Swap Result</div>
+                        </td>
+                        <td>
+                            <div class="metadata">
+                                <div class="metadata-item">4 Faces Swapped</div>
+                                <div class="metadata-item">API v2</div>
+                                <div class="metadata-item">CodeFormer</div>
+                                <div class="metadata-item">2.806s</div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="source-group">
+            <div class="source-header">
+                <img class="source-preview" src="test-results/source-images/source_03.jpg" alt="Source 03">
+                Source Family 03 Results (3 combinations)
+            </div>
+            
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Target Image</th>
+                        <th>Source Image</th>
+                        <th>Face Swap Result</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/target-images/target_01.jpg" alt="Target 01" onclick="openModal('test-results/target-images/target_01.jpg')">
+                            <div class="image-label">Target 01</div>
+                        </td>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/source-images/source_03.jpg" alt="Source 03" onclick="openModal('test-results/source-images/source_03.jpg')">
+                            <div class="image-label">Source 03</div>
+                        </td>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/results/source_03_to_target_01_result.jpg" alt="Result 03 → 01" onclick="openModal('test-results/results/source_03_to_target_01_result.jpg')">
+                            <div class="image-label">Face Swap Result</div>
+                        </td>
+                        <td>
+                            <div class="metadata">
+                                <div class="metadata-item">4 Faces Swapped</div>
+                                <div class="metadata-item">API v2</div>
+                                <div class="metadata-item">CodeFormer</div>
+                                <div class="metadata-item">3.392s</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/target-images/target_02.jpg" alt="Target 02" onclick="openModal('test-results/target-images/target_02.jpg')">
+                            <div class="image-label">Target 02</div>
+                        </td>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/source-images/source_03.jpg" alt="Source 03" onclick="openModal('test-results/source-images/source_03.jpg')">
+                            <div class="image-label">Source 03</div>
+                        </td>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/results/source_03_to_target_02_result.jpg" alt="Result 03 → 02" onclick="openModal('test-results/results/source_03_to_target_02_result.jpg')">
+                            <div class="image-label">Face Swap Result</div>
+                        </td>
+                        <td>
+                            <div class="metadata">
+                                <div class="metadata-item">4 Faces Swapped</div>
+                                <div class="metadata-item">API v2</div>
+                                <div class="metadata-item">CodeFormer</div>
+                                <div class="metadata-item">2.795s</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/target-images/target_03.jpg" alt="Target 03" onclick="openModal('test-results/target-images/target_03.jpg')">
+                            <div class="image-label">Target 03</div>
+                        </td>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/source-images/source_03.jpg" alt="Source 03" onclick="openModal('test-results/source-images/source_03.jpg')">
+                            <div class="image-label">Source 03</div>
+                        </td>
+                        <td class="image-cell">
+                            <img class="test-image" src="test-results/results/source_03_to_target_03_result.jpg" alt="Result 03 → 03" onclick="openModal('test-results/results/source_03_to_target_03_result.jpg')">
+                            <div class="image-label">Face Swap Result</div>
+                        </td>
+                        <td>
+                            <div class="metadata">
+                                <div class="metadata-item">4 Faces Swapped</div>
+                                <div class="metadata-item">API v2</div>
+                                <div class="metadata-item">CodeFormer</div>
+                                <div class="metadata-item">2.828s</div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal for enlarged images -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = imageSrc;
+        }
+
+        // Modal close functionality
+        document.querySelector('.close').onclick = function() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

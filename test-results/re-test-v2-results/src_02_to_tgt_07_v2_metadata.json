@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-07-22T14:16:44.234548",
+  "source_image": "Brad_Pitt_2019_by_Glenn_Francis.jpg",
+  "target_image": "image (18).png",
+  "output_image": "src_02_to_tgt_07_v2_result.jpg",
+  "api_version": "v2",
+  "api_endpoint": "faceswap-v2",
+  "test_type": "retest_batch",
+  "source_faces_index": 0,
+  "input_faces_index": 0,
+  "face_restore": "codeformer-v0.1.0.pth",
+  "generation_time": "1.132",
+  "remaining_credits": "603.6346667243",
+  "request_id": "3aabd6eaa67103322271eb9ae9a0de5e",
+  "request_time": "6.88",
+  "content_length": "197977"
+}

@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-07-22T14:23:07.728391",
+  "source_image": "image (19).png",
+  "target_image": "Screenshot 2025-05-20 at 15.00.22.png",
+  "output_image": "src_07_to_tgt_02_v2_result.jpg",
+  "api_version": "v2",
+  "api_endpoint": "faceswap-v2",
+  "test_type": "retest_batch",
+  "source_faces_index": 0,
+  "input_faces_index": 0,
+  "face_restore": "codeformer-v0.1.0.pth",
+  "generation_time": "1.197",
+  "remaining_credits": "603.5468522243",
+  "request_id": "a874213eda1dd433603385fb9e58d8b1",
+  "request_time": "6.23",
+  "content_length": "122097"
+}

@@ -1,0 +1,19 @@
+# Sensitive files only
+api_key.txt
+*.log
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# MacOS
+.DS_Store
+node_modules
+
+# Keep everything else for demo:
+# - All HTML files (*.html)
+# - All test results (test-results/)
+# - All source images (source-single-face/)
+# - All reference files (reference_files/)
+# - CSV logs (*.csv) - needed for debugging data

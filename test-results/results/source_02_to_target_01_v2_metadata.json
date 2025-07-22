@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-07-22T09:51:21.742131",
+  "source_image": "source_02.jpg",
+  "target_image": "target_01.png",
+  "output_image": "source_02_to_target_01_v2_result.jpg",
+  "api_version": "v2",
+  "source_faces_index": "0,1,2,3",
+  "input_faces_index": "0,1,2,3",
+  "generation_time": "4.098",
+  "remaining_credits": "609.5843460243",
+  "request_id": "7c9eca9c4f4455ce942f519bf705b635",
+  "image_metadata": "{'height': 1536, 'samples': 1, 'width': 1024}",
+  "content_length": "621615"
+}

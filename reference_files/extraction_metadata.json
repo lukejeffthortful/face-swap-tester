@@ -1,0 +1,463 @@
+{
+  "extraction_date": "2025-07-22T12:41:59.227156",
+  "source_image": "reference_files/sourc_and_targets_v2_testing.png",
+  "extraction_method": "grid_based",
+  "pairs": [
+    {
+      "pair_number": 1,
+      "target_file": "target_01.png",
+      "source_file": "source_01.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          50,
+          289,
+          336
+        ],
+        "source_box": [
+          289,
+          50,
+          578,
+          336
+        ]
+      }
+    },
+    {
+      "pair_number": 2,
+      "target_file": "target_02.png",
+      "source_file": "source_02.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          336,
+          289,
+          622
+        ],
+        "source_box": [
+          289,
+          336,
+          578,
+          622
+        ]
+      }
+    },
+    {
+      "pair_number": 3,
+      "target_file": "target_03.png",
+      "source_file": "source_03.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          622,
+          289,
+          908
+        ],
+        "source_box": [
+          289,
+          622,
+          578,
+          908
+        ]
+      }
+    },
+    {
+      "pair_number": 4,
+      "target_file": "target_04.png",
+      "source_file": "source_04.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          908,
+          289,
+          1194
+        ],
+        "source_box": [
+          289,
+          908,
+          578,
+          1194
+        ]
+      }
+    },
+    {
+      "pair_number": 5,
+      "target_file": "target_05.png",
+      "source_file": "source_05.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          1194,
+          289,
+          1480
+        ],
+        "source_box": [
+          289,
+          1194,
+          578,
+          1480
+        ]
+      }
+    },
+    {
+      "pair_number": 6,
+      "target_file": "target_06.png",
+      "source_file": "source_06.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          1480,
+          289,
+          1766
+        ],
+        "source_box": [
+          289,
+          1480,
+          578,
+          1766
+        ]
+      }
+    },
+    {
+      "pair_number": 7,
+      "target_file": "target_07.png",
+      "source_file": "source_07.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          1766,
+          289,
+          2052
+        ],
+        "source_box": [
+          289,
+          1766,
+          578,
+          2052
+        ]
+      }
+    },
+    {
+      "pair_number": 8,
+      "target_file": "target_08.png",
+      "source_file": "source_08.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          2052,
+          289,
+          2338
+        ],
+        "source_box": [
+          289,
+          2052,
+          578,
+          2338
+        ]
+      }
+    },
+    {
+      "pair_number": 9,
+      "target_file": "target_09.png",
+      "source_file": "source_09.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          2338,
+          289,
+          2624
+        ],
+        "source_box": [
+          289,
+          2338,
+          578,
+          2624
+        ]
+      }
+    },
+    {
+      "pair_number": 10,
+      "target_file": "target_10.png",
+      "source_file": "source_10.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          2624,
+          289,
+          2910
+        ],
+        "source_box": [
+          289,
+          2624,
+          578,
+          2910
+        ]
+      }
+    },
+    {
+      "pair_number": 11,
+      "target_file": "target_11.png",
+      "source_file": "source_11.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          2910,
+          289,
+          3196
+        ],
+        "source_box": [
+          289,
+          2910,
+          578,
+          3196
+        ]
+      }
+    },
+    {
+      "pair_number": 12,
+      "target_file": "target_12.png",
+      "source_file": "source_12.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          3196,
+          289,
+          3482
+        ],
+        "source_box": [
+          289,
+          3196,
+          578,
+          3482
+        ]
+      }
+    },
+    {
+      "pair_number": 13,
+      "target_file": "target_13.png",
+      "source_file": "source_13.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          3482,
+          289,
+          3768
+        ],
+        "source_box": [
+          289,
+          3482,
+          578,
+          3768
+        ]
+      }
+    },
+    {
+      "pair_number": 14,
+      "target_file": "target_14.png",
+      "source_file": "source_14.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          3768,
+          289,
+          4054
+        ],
+        "source_box": [
+          289,
+          3768,
+          578,
+          4054
+        ]
+      }
+    },
+    {
+      "pair_number": 15,
+      "target_file": "target_15.png",
+      "source_file": "source_15.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          4054,
+          289,
+          4340
+        ],
+        "source_box": [
+          289,
+          4054,
+          578,
+          4340
+        ]
+      }
+    },
+    {
+      "pair_number": 16,
+      "target_file": "target_16.png",
+      "source_file": "source_16.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          4340,
+          289,
+          4626
+        ],
+        "source_box": [
+          289,
+          4340,
+          578,
+          4626
+        ]
+      }
+    },
+    {
+      "pair_number": 17,
+      "target_file": "target_17.png",
+      "source_file": "source_17.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          4626,
+          289,
+          4912
+        ],
+        "source_box": [
+          289,
+          4626,
+          578,
+          4912
+        ]
+      }
+    },
+    {
+      "pair_number": 18,
+      "target_file": "target_18.png",
+      "source_file": "source_18.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          4912,
+          289,
+          5198
+        ],
+        "source_box": [
+          289,
+          4912,
+          578,
+          5198
+        ]
+      }
+    },
+    {
+      "pair_number": 19,
+      "target_file": "target_19.png",
+      "source_file": "source_19.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          5198,
+          289,
+          5484
+        ],
+        "source_box": [
+          289,
+          5198,
+          578,
+          5484
+        ]
+      }
+    },
+    {
+      "pair_number": 20,
+      "target_file": "target_20.png",
+      "source_file": "source_20.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          5484,
+          289,
+          5770
+        ],
+        "source_box": [
+          289,
+          5484,
+          578,
+          5770
+        ]
+      }
+    },
+    {
+      "pair_number": 21,
+      "target_file": "target_21.png",
+      "source_file": "source_21.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          5770,
+          289,
+          6056
+        ],
+        "source_box": [
+          289,
+          5770,
+          578,
+          6056
+        ]
+      }
+    },
+    {
+      "pair_number": 22,
+      "target_file": "target_22.png",
+      "source_file": "source_22.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          6056,
+          289,
+          6342
+        ],
+        "source_box": [
+          289,
+          6056,
+          578,
+          6342
+        ]
+      }
+    },
+    {
+      "pair_number": 23,
+      "target_file": "target_23.png",
+      "source_file": "source_23.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          6342,
+          289,
+          6628
+        ],
+        "source_box": [
+          289,
+          6342,
+          578,
+          6628
+        ]
+      }
+    },
+    {
+      "pair_number": 24,
+      "target_file": "target_24.png",
+      "source_file": "source_24.png",
+      "coordinates": {
+        "target_box": [
+          0,
+          6628,
+          289,
+          6914
+        ],
+        "source_box": [
+          289,
+          6628,
+          578,
+          6914
+        ]
+      }
+    }
+  ]
+}

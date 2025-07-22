@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-07-22T15:26:06.220079",
+  "source_image": "Cheryl_Cole_Cannes_2014 (1).jpg",
+  "target_image": "target_08.png",
+  "output_image": "source_03_to_target_08_v2_result.jpg",
+  "api_version": "v2",
+  "api_endpoint": "faceswap-v2",
+  "test_type": "single_face",
+  "source_faces_index": 0,
+  "input_faces_index": 0,
+  "face_restore": "codeformer-v0.1.0.pth",
+  "generation_time": "1.036",
+  "remaining_credits": "601.9986467243",
+  "request_id": "4aa8f26d5576f908c7986b4dff490963",
+  "request_time": "5.15",
+  "content_length": "71003"
+}

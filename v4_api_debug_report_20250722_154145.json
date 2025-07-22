@@ -1,0 +1,425 @@
+{
+  "report_metadata": {
+    "generated_at": "2025-07-22T15:33:11.362604",
+    "purpose": "Debug V4 API issues for developer investigation",
+    "python_version": "3.9.6 (default, Apr 30 2025, 02:07:17) \n[Clang 17.0.0 (clang-1700.0.13.5)]",
+    "requests_version": "2.31.0"
+  },
+  "api_endpoint": "https://api.segmind.com/v1/faceswap-v4",
+  "issue_summary": "V4 API calls timing out or failing during single-face testing",
+  "test_configuration": {
+    "timeout": 120,
+    "source_face_index": 0,
+    "target_face_index": 0,
+    "detection_face_order": "big_to_small",
+    "model_type": "quality",
+    "swap_type": "face"
+  },
+  "tests": [
+    {
+      "test_name": "debug_test_01_source1_target1",
+      "timestamp": "2025-07-22T15:33:11.362884",
+      "source_image": {
+        "path": "source-single-face/1443_v9_bc.jpg",
+        "filename": "1443_v9_bc.jpg",
+        "info": {
+          "format": "JPEG",
+          "mode": "RGB",
+          "size": [
+            248,
+            330
+          ],
+          "file_size_bytes": 19639
+        }
+      },
+      "target_image": {
+        "path": "test-results/target-images/target_01.png",
+        "filename": "target_01.png",
+        "info": {
+          "format": "JPEG",
+          "mode": "RGB",
+          "size": [
+            452,
+            640
+          ],
+          "file_size_bytes": 40071
+        }
+      },
+      "api_details": {
+        "url": "https://api.segmind.com/v1/faceswap-v4",
+        "method": "POST",
+        "timeout": 120
+      },
+      "encoding": {
+        "source_base64_length": 26188,
+        "target_base64_length": 53428,
+        "total_payload_size_approx": 79616
+      },
+      "request_payload": {
+        "source_face_index": 0,
+        "target_face_index": 0,
+        "detection_face_order": "big_to_small",
+        "model_type": "quality",
+        "swap_type": "face",
+        "headers_sent": {
+          "x-api-key": "[REDACTED]",
+          "Content-Type": "application/json"
+        }
+      },
+      "error": {
+        "type": "timeout",
+        "message": "Request timed out after 120 seconds",
+        "duration": 120
+      }
+    },
+    {
+      "test_name": "debug_test_02_source1_target2",
+      "timestamp": "2025-07-22T15:35:12.933440",
+      "source_image": {
+        "path": "source-single-face/1443_v9_bc.jpg",
+        "filename": "1443_v9_bc.jpg",
+        "info": {
+          "format": "JPEG",
+          "mode": "RGB",
+          "size": [
+            248,
+            330
+          ],
+          "file_size_bytes": 19639
+        }
+      },
+      "target_image": {
+        "path": "test-results/target-images/target_02.png",
+        "filename": "target_02.png",
+        "info": {
+          "format": "JPEG",
+          "mode": "RGB",
+          "size": [
+            453,
+            640
+          ],
+          "file_size_bytes": 39852
+        }
+      },
+      "api_details": {
+        "url": "https://api.segmind.com/v1/faceswap-v4",
+        "method": "POST",
+        "timeout": 120
+      },
+      "encoding": {
+        "source_base64_length": 26188,
+        "target_base64_length": 53136,
+        "total_payload_size_approx": 79324
+      },
+      "request_payload": {
+        "source_face_index": 0,
+        "target_face_index": 0,
+        "detection_face_order": "big_to_small",
+        "model_type": "quality",
+        "swap_type": "face",
+        "headers_sent": {
+          "x-api-key": "[REDACTED]",
+          "Content-Type": "application/json"
+        }
+      },
+      "error": {
+        "type": "timeout",
+        "message": "Request timed out after 120 seconds",
+        "duration": 120
+      }
+    },
+    {
+      "test_name": "debug_test_03_source1_target3",
+      "timestamp": "2025-07-22T15:37:14.472105",
+      "source_image": {
+        "path": "source-single-face/1443_v9_bc.jpg",
+        "filename": "1443_v9_bc.jpg",
+        "info": {
+          "format": "JPEG",
+          "mode": "RGB",
+          "size": [
+            248,
+            330
+          ],
+          "file_size_bytes": 19639
+        }
+      },
+      "target_image": {
+        "path": "test-results/target-images/target_03.png",
+        "filename": "target_03.png",
+        "info": {
+          "format": "JPEG",
+          "mode": "RGB",
+          "size": [
+            426,
+            602
+          ],
+          "file_size_bytes": 44143
+        }
+      },
+      "api_details": {
+        "url": "https://api.segmind.com/v1/faceswap-v4",
+        "method": "POST",
+        "timeout": 120
+      },
+      "encoding": {
+        "source_base64_length": 26188,
+        "target_base64_length": 58860,
+        "total_payload_size_approx": 85048
+      },
+      "request_payload": {
+        "source_face_index": 0,
+        "target_face_index": 0,
+        "detection_face_order": "big_to_small",
+        "model_type": "quality",
+        "swap_type": "face",
+        "headers_sent": {
+          "x-api-key": "[REDACTED]",
+          "Content-Type": "application/json"
+        }
+      },
+      "response": {
+        "status_code": 200,
+        "headers": {
+          "Date": "Tue, 22 Jul 2025 14:38:04 GMT",
+          "Content-Type": "image/jpeg",
+          "Content-Length": "64085",
+          "Connection": "keep-alive",
+          "Server": "nginx/1.18.0 (Ubuntu)",
+          "Cache-Control": "no-cache",
+          "X-output-metadata": "{'height': 602, 'width': 426}",
+          "X-generation-time": "45.62",
+          "X-remaining-credits": "600.8198597243",
+          "X-Request-ID": "708b82f9bf47e90a83b501bc747faf6e",
+          "X-Seed-Value": "None",
+          "X-RATE-LIMIT-RESET-AT-UTC": "2025-07-22 14:38:17",
+          "X-RATE-LIMIT-REMAINING": "999",
+          "Access-Control-Expose-Headers": "X-Generation-Time, X-Request-ID, X-Seed-Value",
+          "Access-Control-Allow-Origin": "*"
+        },
+        "request_duration_seconds": 50.525,
+        "content_length": 64085,
+        "content_type": "image/jpeg",
+        "type": "binary_image",
+        "success": true,
+        "saved_to": "debug_results/debug_test_03_source1_target3_result.jpg"
+      }
+    },
+    {
+      "test_name": "debug_test_04_source2_target1",
+      "timestamp": "2025-07-22T15:38:06.011305",
+      "source_image": {
+        "path": "source-single-face/2cb6cd0f-2d06-11e6-bce7-6ff134176666.jpg",
+        "filename": "2cb6cd0f-2d06-11e6-bce7-6ff134176666.jpg",
+        "info": {
+          "format": "JPEG",
+          "mode": "RGB",
+          "size": [
+            1200,
+            1200
+          ],
+          "file_size_bytes": 252941
+        }
+      },
+      "target_image": {
+        "path": "test-results/target-images/target_01.png",
+        "filename": "target_01.png",
+        "info": {
+          "format": "JPEG",
+          "mode": "RGB",
+          "size": [
+            452,
+            640
+          ],
+          "file_size_bytes": 40071
+        }
+      },
+      "api_details": {
+        "url": "https://api.segmind.com/v1/faceswap-v4",
+        "method": "POST",
+        "timeout": 120
+      },
+      "encoding": {
+        "source_base64_length": 337256,
+        "target_base64_length": 53428,
+        "total_payload_size_approx": 390684
+      },
+      "request_payload": {
+        "source_face_index": 0,
+        "target_face_index": 0,
+        "detection_face_order": "big_to_small",
+        "model_type": "quality",
+        "swap_type": "face",
+        "headers_sent": {
+          "x-api-key": "[REDACTED]",
+          "Content-Type": "application/json"
+        }
+      },
+      "response": {
+        "status_code": 200,
+        "headers": {
+          "Date": "Tue, 22 Jul 2025 14:38:49 GMT",
+          "Content-Type": "image/jpeg",
+          "Content-Length": "59653",
+          "Connection": "keep-alive",
+          "Server": "nginx/1.18.0 (Ubuntu)",
+          "Cache-Control": "no-cache",
+          "X-output-metadata": "{'height': 640, 'width': 452}",
+          "X-generation-time": "39.042",
+          "X-remaining-credits": "600.1540613243",
+          "X-Request-ID": "499b6686c5ab152c7970bfb32b112fa4",
+          "X-Seed-Value": "None",
+          "X-RATE-LIMIT-RESET-AT-UTC": "2025-07-22 14:38:50",
+          "X-RATE-LIMIT-REMAINING": "1000",
+          "Access-Control-Expose-Headers": "X-Generation-Time, X-Request-ID, X-Seed-Value",
+          "Access-Control-Allow-Origin": "*"
+        },
+        "request_duration_seconds": 43.491,
+        "content_length": 59653,
+        "content_type": "image/jpeg",
+        "type": "binary_image",
+        "success": true,
+        "saved_to": "debug_results/debug_test_04_source2_target1_result.jpg"
+      }
+    },
+    {
+      "test_name": "debug_test_05_source2_target2",
+      "timestamp": "2025-07-22T15:38:50.515839",
+      "source_image": {
+        "path": "source-single-face/2cb6cd0f-2d06-11e6-bce7-6ff134176666.jpg",
+        "filename": "2cb6cd0f-2d06-11e6-bce7-6ff134176666.jpg",
+        "info": {
+          "format": "JPEG",
+          "mode": "RGB",
+          "size": [
+            1200,
+            1200
+          ],
+          "file_size_bytes": 252941
+        }
+      },
+      "target_image": {
+        "path": "test-results/target-images/target_02.png",
+        "filename": "target_02.png",
+        "info": {
+          "format": "JPEG",
+          "mode": "RGB",
+          "size": [
+            453,
+            640
+          ],
+          "file_size_bytes": 39852
+        }
+      },
+      "api_details": {
+        "url": "https://api.segmind.com/v1/faceswap-v4",
+        "method": "POST",
+        "timeout": 120
+      },
+      "encoding": {
+        "source_base64_length": 337256,
+        "target_base64_length": 53136,
+        "total_payload_size_approx": 390392
+      },
+      "request_payload": {
+        "source_face_index": 0,
+        "target_face_index": 0,
+        "detection_face_order": "big_to_small",
+        "model_type": "quality",
+        "swap_type": "face",
+        "headers_sent": {
+          "x-api-key": "[REDACTED]",
+          "Content-Type": "application/json"
+        }
+      },
+      "error": {
+        "type": "timeout",
+        "message": "Request timed out after 120 seconds",
+        "duration": 120
+      }
+    },
+    {
+      "test_name": "debug_test_06_source2_target3",
+      "timestamp": "2025-07-22T15:40:52.650389",
+      "source_image": {
+        "path": "source-single-face/2cb6cd0f-2d06-11e6-bce7-6ff134176666.jpg",
+        "filename": "2cb6cd0f-2d06-11e6-bce7-6ff134176666.jpg",
+        "info": {
+          "format": "JPEG",
+          "mode": "RGB",
+          "size": [
+            1200,
+            1200
+          ],
+          "file_size_bytes": 252941
+        }
+      },
+      "target_image": {
+        "path": "test-results/target-images/target_03.png",
+        "filename": "target_03.png",
+        "info": {
+          "format": "JPEG",
+          "mode": "RGB",
+          "size": [
+            426,
+            602
+          ],
+          "file_size_bytes": 44143
+        }
+      },
+      "api_details": {
+        "url": "https://api.segmind.com/v1/faceswap-v4",
+        "method": "POST",
+        "timeout": 120
+      },
+      "encoding": {
+        "source_base64_length": 337256,
+        "target_base64_length": 58860,
+        "total_payload_size_approx": 396116
+      },
+      "request_payload": {
+        "source_face_index": 0,
+        "target_face_index": 0,
+        "detection_face_order": "big_to_small",
+        "model_type": "quality",
+        "swap_type": "face",
+        "headers_sent": {
+          "x-api-key": "[REDACTED]",
+          "Content-Type": "application/json"
+        }
+      },
+      "response": {
+        "status_code": 200,
+        "headers": {
+          "Date": "Tue, 22 Jul 2025 14:41:43 GMT",
+          "Content-Type": "image/jpeg",
+          "Content-Length": "63891",
+          "Connection": "keep-alive",
+          "Server": "nginx/1.18.0 (Ubuntu)",
+          "Cache-Control": "no-cache",
+          "X-output-metadata": "{'height': 602, 'width': 426}",
+          "X-generation-time": "46.703",
+          "X-remaining-credits": "599.8729589243",
+          "X-Request-ID": "4137e9118fa25bd26eedafcde6048717",
+          "X-Seed-Value": "None",
+          "X-RATE-LIMIT-RESET-AT-UTC": "2025-07-22 14:41:54",
+          "X-RATE-LIMIT-REMAINING": "999",
+          "Access-Control-Expose-Headers": "X-Generation-Time, X-Request-ID, X-Seed-Value",
+          "Access-Control-Allow-Origin": "*"
+        },
+        "request_duration_seconds": 51.518,
+        "content_length": 63891,
+        "content_type": "image/jpeg",
+        "type": "binary_image",
+        "success": true,
+        "saved_to": "debug_results/debug_test_06_source2_target3_result.jpg"
+      }
+    }
+  ],
+  "summary": {
+    "total_tests": 6,
+    "successful": 3,
+    "failed": 3,
+    "success_rate": "50.0%"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-07-22T16:06:39.764623",
+  "source_image": "2cb6cd0f-2d06-11e6-bce7-6ff134176666.jpg",
+  "target_image": "target_08.png",
+  "output_image": "source_02_to_target_08_v4_result.jpg",
+  "api_version": "v4",
+  "api_endpoint": "faceswap-v4",
+  "test_type": "single_face",
+  "source_face_index": 0,
+  "target_face_index": 0,
+  "detection_face_order": "big_to_small",
+  "model_type": "speed",
+  "swap_type": "face",
+  "hardware_type": "cost",
+  "generation_time": "14.347",
+  "remaining_credits": "594.5720477243",
+  "request_id": "decac32aa75dc71e8e5caa120f6c4726",
+  "request_time": "19.263",
+  "csv_log_id": "v4_1753196780498"
+}
