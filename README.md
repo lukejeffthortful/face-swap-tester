@@ -4,7 +4,7 @@ Comprehensive testing and comparison of Segmind Face Swap APIs (v2, v4, v4.3).
 
 ## 🎯 Live Demo
 
-**[View Dashboard](https://your-username.github.io/face-swap-tester/)**
+**[View Dashboard](https://lukejeffthortful.github.io/face-swap-tester/)**
 
 ## 📊 Test Results
 
