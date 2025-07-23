@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-07-22T21:26:41.430685",
+  "source_image": "source_01.jpg",
+  "target_image": "target_04.png",
+  "output_image": "source_01_to_target_04_v43_result.jpg",
+  "api_version": "v4.3",
+  "api_endpoint": "faceswap-v4.3",
+  "test_type": "multi_face",
+  "source_face_index": "0,1,2,3",
+  "target_face_index": "0,1,2,3",
+  "detection_face_order": "left_to_right",
+  "model_type": "speed",
+  "swap_type": "face",
+  "generation_time": "31.924",
+  "remaining_credits": "583.3968501243",
+  "request_id": "4a1773e318064769229a740753b1085a",
+  "request_time": "37.925",
+  "csv_log_id": "v43_multiface_1753215963503",
+  "credits_used": 0.33912099999997736,
+  "cost_per_request": 0.0034
+}

@@ -85,8 +85,8 @@ def generate_all_target_images():
         print("❌ Error: Please set REACT_APP_SEGMIND_API_KEY in .env file")
         return
     
-    # Ensure target directory exists
-    os.makedirs("test-results/target-images", exist_ok=True)
+    # Ensure target directory exists (for multi-face targets)
+    os.makedirs("test-results/multiface-target-images", exist_ok=True)
     
     # Define prompts for each target image
     target_prompts = [
@@ -104,7 +104,7 @@ def generate_all_target_images():
         },
         {
             "filename": "target_06.png",
-            "prompt": "Christmas family greeting card with 4 people (2 parents, 2 children) in festive holiday outfits. Parents sitting on couch wrapped in Christmas lights with big smiles, children standing beside them holding more lights. Everyone wearing Santa hats and red sweaters. Professional Christmas portrait style, all faces clearly visible, warm holiday lighting, Christmas tree in background. Text overlay 'All Wrapped Up for the Holidays!'"
+            "prompt": "Portrait format Christmas family greeting card with 4 people (2 parents, 2 children) in festive holiday outfits. Family arranged vertically - parents sitting on couch in front, children standing behind them. Everyone wearing Santa hats and red sweaters, wrapped in Christmas lights with big smiles. Professional Christmas portrait style, all faces clearly visible, warm holiday lighting, Christmas tree in background. Text overlay 'All Wrapped Up for the Holidays!' Vertical 3:4 aspect ratio."
         },
         {
             "filename": "target_07.png",
@@ -119,7 +119,7 @@ def generate_all_target_images():
     failed = 0
     
     for target in target_prompts:
-        output_path = f"test-results/target-images/{target['filename']}"
+        output_path = f"test-results/multiface-target-images/{target['filename']}"
         
         # Skip if already exists
         if os.path.exists(output_path):
@@ -141,7 +141,7 @@ def generate_all_target_images():
     print(f"\n📊 Generation Summary:")
     print(f"   ✅ Successful: {successful}")
     print(f"   ❌ Failed: {failed}")
-    print(f"   📁 Images saved to: test-results/target-images/")
+    print(f"   📁 Images saved to: test-results/multiface-target-images/")
     
     if successful > 0:
         print(f"\n🔄 Next step: Run comparative testing with all target images")

@@ -20,7 +20,7 @@ def generate_single_face_comparison():
     
     # Setup paths
     source_images = sorted(glob.glob("source-single-face/*.jpg"))
-    target_images = sorted(glob.glob("test-results/target-images/target_*.png"))
+    target_images = sorted(glob.glob("test-results/single-face-target-images/target_*.png"))
     results_dir = "test-results/single-face-results"
     
     print(f"🎯 Generating Single Face Comparison")

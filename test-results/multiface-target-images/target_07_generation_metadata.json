@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-07-22T19:57:56.644107",
+  "prompt": "Photorealistic Christmas greeting card featuring a family of 4 people magically hanging from a mantle like Christmas stockings. Each family member wearing festive pajamas and Santa hats, dangling playfully from decorative hooks on a fireplace mantle with garland and lights. All 4 faces clearly visible, smiling and looking toward camera, professional portrait quality. Text overlay 'Hanging Around for the Holidays!' Studio photography lighting, high detail facial features, magical but realistic Christmas scene, warm cozy atmosphere.",
+  "api_endpoint": "https://api.segmind.com/v1/gpt-image-1",
+  "generation_time": "85.665064",
+  "remaining_credits": "588.6992175243",
+  "request_id": "beb19e96d2c6888704dbeaadc3f91f0d",
+  "content_length": "250542",
+  "parameters": {
+    "prompt": "Photorealistic Christmas greeting card featuring a family of 4 people magically hanging from a mantle like Christmas stockings. Each family member wearing festive pajamas and Santa hats, dangling playfully from decorative hooks on a fireplace mantle with garland and lights. All 4 faces clearly visible, smiling and looking toward camera, professional portrait quality. Text overlay 'Hanging Around for the Holidays!' Studio photography lighting, high detail facial features, magical but realistic Christmas scene, warm cozy atmosphere.",
+    "style": "photorealistic",
+    "samples": 1,
+    "scheduler": "DDIM",
+    "num_inference_steps": 30,
+    "guidance_scale": 8.0,
+    "seed": -1,
+    "img_width": 1024,
+    "img_height": 1536,
+    "base64": false
+  }
+}

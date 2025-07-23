@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-07-22T19:53:48.535262",
+  "prompt": "Christmas family greeting card featuring 4 family members (parents and 2 kids) in matching plaid pajamas, sitting around a beautifully decorated Christmas tree with presents underneath. Cozy living room setting with twinkling lights. Text overlay 'Joy & Peace' in festive script font. Professional greeting card style, warm and inviting atmosphere.",
+  "api_endpoint": "https://api.segmind.com/v1/gpt-image-1",
+  "generation_time": "78.21951",
+  "remaining_credits": "589.6383090243",
+  "request_id": "6f46bf168b8c0c53f953b4a80529b839",
+  "content_length": "254500",
+  "parameters": {
+    "prompt": "Christmas family greeting card featuring 4 family members (parents and 2 kids) in matching plaid pajamas, sitting around a beautifully decorated Christmas tree with presents underneath. Cozy living room setting with twinkling lights. Text overlay 'Joy & Peace' in festive script font. Professional greeting card style, warm and inviting atmosphere.",
+    "style": "photorealistic",
+    "samples": 1,
+    "scheduler": "DDIM",
+    "num_inference_steps": 30,
+    "guidance_scale": 8.0,
+    "seed": -1,
+    "img_width": 1024,
+    "img_height": 1536,
+    "base64": false
+  }
+}

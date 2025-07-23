@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-07-22T19:55:03.223559",
+  "prompt": "Holiday family portrait greeting card with 4 people wearing elegant winter outfits (sweaters, scarves) standing in front of a snowy backdrop with Christmas lights. Text overlay 'Warmest Wishes for the Holidays' in beautiful serif font. Professional photography style, festive but sophisticated, golden hour lighting.",
+  "api_endpoint": "https://api.segmind.com/v1/gpt-image-1",
+  "generation_time": "71.359611",
+  "remaining_credits": "589.3254340243",
+  "request_id": "cabf800b8af56a89f7354fd31976a443",
+  "content_length": "292070",
+  "parameters": {
+    "prompt": "Holiday family portrait greeting card with 4 people wearing elegant winter outfits (sweaters, scarves) standing in front of a snowy backdrop with Christmas lights. Text overlay 'Warmest Wishes for the Holidays' in beautiful serif font. Professional photography style, festive but sophisticated, golden hour lighting.",
+    "style": "photorealistic",
+    "samples": 1,
+    "scheduler": "DDIM",
+    "num_inference_steps": 30,
+    "guidance_scale": 8.0,
+    "seed": -1,
+    "img_width": 1024,
+    "img_height": 1536,
+    "base64": false
+  }
+}
