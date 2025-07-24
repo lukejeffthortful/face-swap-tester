@@ -1,14 +1,32 @@
 {
-  "timestamp": "2025-07-22T09:45:50.274347",
+  "timestamp": "2025-07-24T15:31:14.088499",
   "source_image": "source_01.jpg",
   "target_image": "target_02.png",
   "output_image": "source_01_to_target_02_v2_result.jpg",
   "api_version": "v2",
-  "source_faces_index": "0,1,2,3",
-  "input_faces_index": "0,1,2,3",
-  "generation_time": "3.967",
-  "remaining_credits": "610.5176055243",
-  "request_id": "69e430b574a771ae4f61180c9d7b00c7",
-  "image_metadata": "{'height': 1536, 'samples': 1, 'width': 1024}",
-  "content_length": "560444"
+  "api_endpoint": "faceswap-v2",
+  "test_type": "multi_face",
+  "source_faces_index": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "target_faces_index": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "face_restore": "codeformer-v0.1.0.pth",
+  "base64": false,
+  "generation_time": "2.631",
+  "remaining_credits": "575.5737111243",
+  "request_id": "130ecb7372380304cb04f27092705f1f",
+  "request_time": "10.351",
+  "csv_log_id": "v2_multiface_1753367463721",
+  "credits_used": 0.004457999999999629,
+  "cost_per_request": 0.0
 }
