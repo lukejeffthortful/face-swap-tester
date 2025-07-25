@@ -337,7 +337,7 @@
         
         async function loadCSVData() {
             try {
-                const response = await fetch('logs/thortful_single_face_tests.csv');
+                const response = await fetch('logs/thortful_diverse_face_tests.csv');
                 const csvText = await response.text();
                 
                 const lines = csvText.split('\n').filter(line => line.trim());
@@ -451,7 +451,7 @@
                 const statusText = isSuccess ? 'Success' : 'Error';
                 
                 const timestamp = new Date(result.timestamp).toLocaleString();
-                const sourceImg = `source-images/${result.source_image}`;
+                const sourceImg = `diverse-source-images/${result.source_image}`;
                 const targetImg = `target-images/${result.target_image}`;
                 const resultImg = isSuccess && result.result_image !== 'error' ? `results/${result.result_image}` : null;
                 

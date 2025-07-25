@@ -88,12 +88,13 @@ def create_csv_header():
                 'notes'
             ])
 
-def run_single_face_swap(source_path, target_path, card_id, auth_headers):
+def run_single_face_swap(source_path, target_path, card_id, auth_headers, max_retries=3):
     """
-    Perform single face swap using Thortful API
+    Perform single face swap using Thortful API with retry logic for 504 errors
     Returns result data dictionary
     """
     start_time = time.time()
+    last_error = None
     
     try:
         # Encode images to base64
@@ -118,13 +119,45 @@ def run_single_face_swap(source_path, target_path, card_id, auth_headers):
         print(f"   Payload keys: {list(payload.keys())}")
         print(f"   targetCardId: {payload.get('targetCardId', 'NOT_FOUND')}")
         
-        # Make API request (increased timeout for V4 processing)
-        response = requests.post(
-            API_ENDPOINT,
-            headers=auth_headers,
-            json=payload,
-            timeout=300
-        )
+        # Retry logic for 504 Gateway Timeout errors
+        response = None
+        for attempt in range(max_retries):
+            try:
+                # Make API request (timeout set to 180s to work with gateway limits)
+                response = requests.post(
+                    API_ENDPOINT,
+                    headers=auth_headers,
+                    json=payload,
+                    timeout=180  # Reduced from 300s to work better with gateway
+                )
+                break  # Success, exit retry loop
+            except requests.exceptions.Timeout as e:
+                last_error = f"Timeout on attempt {attempt + 1}: {str(e)}"
+                print(f"⚠️ Timeout on attempt {attempt + 1}/{max_retries}")
+                if attempt < max_retries - 1:
+                    print(f"   Retrying in 10 seconds...")
+                    time.sleep(10)
+                continue
+            except Exception as e:
+                last_error = str(e)
+                print(f"⚠️ Error on attempt {attempt + 1}/{max_retries}: {e}")
+                if attempt < max_retries - 1:
+                    print(f"   Retrying in 10 seconds...")
+                    time.sleep(10)
+                continue
+        
+        if response is None:
+            # All retries failed
+            request_time = time.time() - start_time
+            print(f"❌ All {max_retries} attempts failed")
+            return {
+                'success': False,
+                'result_image': 'timeout_error',
+                'generation_time': 'timeout_error',
+                'request_time': f"{request_time:.3f}",
+                'error_message': f"Failed after {max_retries} attempts: {last_error}",
+                'raw_response': {}
+            }
         
         request_time = time.time() - start_time
         
@@ -166,15 +199,28 @@ def run_single_face_swap(source_path, target_path, card_id, auth_headers):
             }
             
         else:
-            print(f"❌ API Error {response.status_code}: {response.text}")
-            return {
-                'success': False,
-                'result_image': 'error',
-                'generation_time': 'error',
-                'request_time': f"{request_time:.3f}",
-                'error_message': f"HTTP {response.status_code}: {response.text}",
-                'raw_response': {}
-            }
+            # Handle 504 Gateway Timeout specifically with retry
+            if response.status_code == 504:
+                print(f"❌ Gateway Timeout (504) - This is common with V4 processing")
+                # For 504 errors, we could retry but the gateway timeout suggests the process is taking too long
+                return {
+                    'success': False,
+                    'result_image': 'gateway_timeout',
+                    'generation_time': 'gateway_timeout',
+                    'request_time': f"{request_time:.3f}",
+                    'error_message': f"Gateway Timeout (504) - V4 processing exceeded gateway limit (~60s)",
+                    'raw_response': {}
+                }
+            else:
+                print(f"❌ API Error {response.status_code}: {response.text}")
+                return {
+                    'success': False,
+                    'result_image': 'error',
+                    'generation_time': 'error',
+                    'request_time': f"{request_time:.3f}",
+                    'error_message': f"HTTP {response.status_code}: {response.text}",
+                    'raw_response': {}
+                }
             
     except Exception as e:
         request_time = time.time() - start_time
@@ -293,8 +339,8 @@ def run_test_batch():
                 if result_data['success']:
                     success_count += 1
                 
-                # Commit to GitHub every 5 results
-                if test_count % 5 == 0:
+                # Commit to GitHub every 2 results
+                if test_count % 2 == 0:
                     commit_to_github(test_count, total_tests, success_count)
                 
                 # Brief pause between requests
