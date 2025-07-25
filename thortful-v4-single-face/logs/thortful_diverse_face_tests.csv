@@ -691,3 +691,5 @@ timestamp,source_image,target_image,card_id,result_image,api_version,test_type,s
 2025-07-25T11:38:23.189113,diverse_face_02.jpg,target_02.png,680b635ab4259a1b1933d009,error,v4-thortful,single_face,False,error,0.170,HTTP 403: ,Thortful API diverse face test - Card 680b635a
 2025-07-25T11:38:25.645987,diverse_face_02.jpg,target_02.png,67a5f37990a11d443906b288,error,v4-thortful,single_face,False,error,0.200,HTTP 403: ,Thortful API diverse face test - Card 67a5f379
 2025-07-25T11:38:26.830910,diverse_face_02.jpg,target_02.png,6855c9e992228930bed19c3f,error,v4-thortful,single_face,False,error,0.178,HTTP 403: ,Thortful API diverse face test - Card 6855c9e9
+2025-07-25T11:38:29.026717,diverse_face_02.jpg,target_02.png,68470d697fd84e35a7c920ea,error,v4-thortful,single_face,False,error,0.135,HTTP 403: ,Thortful API diverse face test - Card 68470d69
+2025-07-25T11:38:30.226738,diverse_face_02.jpg,target_02.png,67c6da4db6fbc326d4bcaafb,error,v4-thortful,single_face,False,error,0.194,HTTP 403: ,Thortful API diverse face test - Card 67c6da4d
