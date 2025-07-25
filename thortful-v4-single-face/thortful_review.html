@@ -312,9 +312,9 @@
         </div>
 
         <div class="filter-group">
-            <label for="targetFilter">Target Image:</label>
-            <select id="targetFilter">
-                <option value="all">All Targets</option>
+            <label for="cardFilter">Card Template:</label>
+            <select id="cardFilter">
+                <option value="all">All Cards</option>
             </select>
         </div>
 
@@ -400,26 +400,27 @@
         
         function updateFilters() {
             const sources = [...new Set(testResults.map(r => r.source_image))];
-            const targets = [...new Set(testResults.map(r => r.target_image))];
+            const cards = [...new Set(testResults.map(r => r.card_id))];
             
             const sourceSelect = document.getElementById('sourceFilter');
-            const targetSelect = document.getElementById('targetFilter');
+            const cardSelect = document.getElementById('cardFilter');
             
             sourceSelect.innerHTML = '<option value="all">All Sources</option>';
             sources.forEach(source => {
                 sourceSelect.innerHTML += `<option value="${source}">${source}</option>`;
             });
             
-            targetSelect.innerHTML = '<option value="all">All Targets</option>';
-            targets.forEach(target => {
-                targetSelect.innerHTML += `<option value="${target}">${target}</option>`;
+            cardSelect.innerHTML = '<option value="all">All Cards</option>';
+            cards.forEach(card => {
+                const cardShort = card ? card.substring(0, 8) : 'unknown';
+                cardSelect.innerHTML += `<option value="${card}">Card ${cardShort}</option>`;
             });
         }
         
         function renderResults() {
             const statusFilter = document.getElementById('statusFilter').value;
             const sourceFilter = document.getElementById('sourceFilter').value;
-            const targetFilter = document.getElementById('targetFilter').value;
+            const cardFilter = document.getElementById('cardFilter').value;
             
             let filteredResults = testResults.filter(result => {
                 if (statusFilter !== 'all') {
@@ -429,7 +430,7 @@
                 }
                 
                 if (sourceFilter !== 'all' && result.source_image !== sourceFilter) return false;
-                if (targetFilter !== 'all' && result.target_image !== targetFilter) return false;
+                if (cardFilter !== 'all' && result.card_id !== cardFilter) return false;
                 
                 return true;
             });
@@ -452,38 +453,42 @@
                 
                 const timestamp = new Date(result.timestamp).toLocaleString();
                 const sourceImg = `diverse-source-images/${result.source_image}`;
-                const targetImg = `target-images/${result.target_image}`;
+                const cardId = result.card_id || 'unknown';
+                const cardIdShort = cardId.substring(0, 8);
                 const resultImg = isSuccess && result.result_image !== 'error' ? `results/${result.result_image}` : null;
                 
                 return `
                     <div class="test-card ${statusClass}">
                         <div class="card-header">
                             <div class="test-title">
-                                ${result.source_image} → ${result.target_image}
+                                ${result.source_image} → Card ${cardIdShort}
                                 <span class="status-badge ${statusBadge}">${statusText}</span>
                             </div>
-                            <div class="test-meta">${timestamp}</div>
+                            <div class="test-meta">${timestamp} • Card ID: ${cardId}</div>
                         </div>
                         <div class="card-content">
                             <div class="images-row">
                                 <div class="image-group">
-                                    <div class="image-label">Source</div>
+                                    <div class="image-label">Source Face</div>
                                     <img src="${sourceImg}" alt="Source" class="test-image" onerror="this.style.display='none'">
                                 </div>
                                 <div class="image-group">
-                                    <div class="image-label">Target</div>
-                                    <img src="${targetImg}" alt="Target" class="test-image" onerror="this.style.display='none'">
+                                    <div class="image-label">Card Template</div>
+                                    <div style="height: 150px; display: flex; align-items: center; justify-content: center; background: #e3f2fd; border-radius: 8px; color: #1976d2; font-weight: 500; text-align: center; padding: 10px;">
+                                        Card ${cardIdShort}<br>
+                                        <span style="font-size: 0.8em; color: #666;">(Template defined by API)</span>
+                                    </div>
                                 </div>
                                 ${resultImg ? `
                                 <div class="image-group">
-                                    <div class="image-label">Result</div>
+                                    <div class="image-label">Face Swap Result</div>
                                     <img src="${resultImg}" alt="Result" class="test-image" onerror="this.style.display='none'">
                                 </div>
                                 ` : `
                                 <div class="image-group">
                                     <div class="image-label">Result</div>
                                     <div style="height: 150px; display: flex; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 8px; color: #7f8c8d;">
-                                        No image
+                                        ${isSuccess ? 'No image' : 'Failed'}
                                     </div>
                                 </div>
                                 `}
@@ -548,7 +553,7 @@
         // Event listeners
         document.getElementById('statusFilter').addEventListener('change', renderResults);
         document.getElementById('sourceFilter').addEventListener('change', renderResults);
-        document.getElementById('targetFilter').addEventListener('change', renderResults);
+        document.getElementById('cardFilter').addEventListener('change', renderResults);
         
         // Initial load
         refreshData();
