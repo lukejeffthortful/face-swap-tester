@@ -1,0 +1,3 @@
+timestamp,source_image,target_image,card_id,result_image,api_version,test_type,success,generation_time_seconds,request_time_seconds,error_message,notes
+2025-07-25T10:19:51.488309,diverse_face_02.jpg,target_01.png,67816ae75990fc276575cd07,diverse_face_02_to_target_01_card_67816ae7_thortful_v4.jpg,v4-thortful,single_face,True,unknown,45.825,,Thortful API diverse face test - Card 67816ae7
+2025-07-25T10:20:35.972152,diverse_face_02.jpg,target_01.png,6855c0b6ebba0773538e8a15,diverse_face_02_to_target_01_card_6855c0b6_thortful_v4.jpg,v4-thortful,single_face,True,unknown,43.358,,Thortful API diverse face test - Card 6855c0b6

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Swap Comparison - Thortful V4</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #2196F3, #21CBF3);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .comparison-section {
+            padding: 40px;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .image-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .image-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .image-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .image-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .image-info h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 1.3em;
+        }
+        
+        .image-info p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .stats-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2196F3;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .tech-details {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .tech-details h4 {
+            margin: 0 0 15px 0;
+            color: #1976d2;
+        }
+        
+        .tech-details ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .tech-details li {
+            margin: 8px 0;
+            color: #555;
+        }
+        
+        .arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: #2196F3;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎭 Face Swap Comparison</h1>
+            <p>Thortful V4 API • Single Face Testing</p>
+        </div>
+        
+        <div class="comparison-section">
+            <div class="comparison-grid">
+                <div class="image-card">
+                    <img src="diverse-source-images/diverse_face_02.jpg" alt="Source Face">
+                    <div class="image-info">
+                        <h3>Source Face</h3>
+                        <p><strong>File:</strong> diverse_face_02.jpg</p>
+                        <p><strong>Type:</strong> Original Source</p>
+                    </div>
+                </div>
+                
+                <div class="image-card">
+                    <img src="target-images/target_01.png" alt="Target Image">
+                    <div class="image-info">
+                        <h3>Target Template</h3>
+                        <p><strong>File:</strong> target_01.png</p>
+                        <p><strong>Type:</strong> Card Template</p>
+                    </div>
+                </div>
+                
+                <div class="image-card">
+                    <img src="results/diverse_face_02_to_target_01_card_67816ae7_thortful_v4.jpg" alt="Face Swap Result">
+                    <div class="image-info">
+                        <h3>✨ Result</h3>
+                        <p><strong>API:</strong> Thortful V4</p>
+                        <p><strong>Card ID:</strong> 67816ae7</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-section">
+                <h3 style="text-align: center; margin-bottom: 30px;">📊 Processing Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">45.83s</div>
+                        <div class="stat-label">Processing Time</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">V4</div>
+                        <div class="stat-label">API Version</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">✅</div>
+                        <div class="stat-label">Status</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">True</div>
+                        <div class="stat-label">Hardware Processing</div>
+                    </div>
+                </div>
+                
+                <div class="tech-details">
+                    <h4>🔧 Technical Details</h4>
+                    <ul>
+                        <li><strong>API Endpoint:</strong> https://api.thortful.com/v1/faceswap?variation=true</li>
+                        <li><strong>Authentication:</strong> Two-step process (anonymous token → user token)</li>
+                        <li><strong>Image Format:</strong> Base64 encoded JPG</li>
+                        <li><strong>Card Template ID:</strong> 67816ae75990fc276575cd07</li>
+                        <li><strong>Result Format:</strong> Base64 decoded to JPG</li>
+                        <li><strong>Quality:</strong> High resolution face swap with V4 processing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

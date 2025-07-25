@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thortful V4 Face Swap Testing Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #2196F3, #21CBF3);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .dashboard {
+            padding: 40px;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .link-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .link-card h3 {
+            margin: 0 0 15px 0;
+            color: #2196F3;
+            font-size: 1.4em;
+        }
+        
+        .link-card p {
+            margin: 0;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .stats-section {
+            background: #e3f2fd;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .stats-section h3 {
+            margin: 0 0 20px 0;
+            color: #1976d2;
+            text-align: center;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+            color: #555;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li strong {
+            color: #2196F3;
+        }
+        
+        .update-time {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧪 Thortful V4 Face Swap Testing</h1>
+            <p>Comprehensive Diverse Face Testing Dashboard</p>
+        </div>
+        
+        <div class="dashboard">
+            <div class="links-grid">
+                <a href="face_swap_comparison.html" class="link-card">
+                    <h3>🎭 Face Swap Example</h3>
+                    <p>View a detailed comparison of source, target, and result with processing statistics</p>
+                </a>
+                
+                <a href="thortful_review.html" class="link-card">
+                    <h3>📊 Results Dashboard</h3>
+                    <p>Browse all test results with filtering and detailed analysis</p>
+                </a>
+                
+                <a href="logs/thortful_diverse_face_tests.csv" class="link-card">
+                    <h3>📋 Raw Data (CSV)</h3>
+                    <p>Download complete test logs with processing times and metadata</p>
+                </a>
+                
+                <a href="results/" class="link-card">
+                    <h3>🖼️ Result Images</h3>
+                    <p>Browse all generated face swap images organized by test</p>
+                </a>
+            </div>
+            
+            <div class="stats-section">
+                <h3>🎯 Testing Specifications</h3>
+                <ul class="feature-list">
+                    <li><strong>Source Images:</strong> 10 diverse faces (various ages, ethnicities, genders)</li>
+                    <li><strong>Target Templates:</strong> 2 card templates</li>
+                    <li><strong>Card Variations:</strong> 26 different card template IDs</li>
+                    <li><strong>Total Test Combinations:</strong> 520 (10 × 2 × 26)</li>
+                    <li><strong>API Version:</strong> Thortful V4 with hardware processing (variation=true)</li>
+                    <li><strong>Processing Time:</strong> ~45-60 seconds per test</li>
+                    <li><strong>Authentication:</strong> Two-step process (anonymous token → user token)</li>
+                    <li><strong>Output Format:</strong> High-quality JPG images via base64 decoding</li>
+                    <li><strong>Auto-commit:</strong> Results pushed to GitHub every 5 tests</li>
+                    <li><strong>Public Access:</strong> Live updates via GitHub Pages</li>
+                </ul>
+                
+                <div class="update-time">
+                    <p>🔄 This dashboard updates automatically as testing progresses</p>
+                    <p>📅 Last updated: <span id="last-updated"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Set last updated time
+        document.getElementById('last-updated').textContent = new Date().toLocaleString();
+    </script>
+</body>
+</html>
