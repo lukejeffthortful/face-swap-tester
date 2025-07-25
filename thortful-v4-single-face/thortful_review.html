@@ -286,8 +286,8 @@
 </head>
 <body>
     <div class="header">
-        <h1>🧪 Thortful Single Face V4 Results</h1>
-        <div class="subtitle">Testing face swap API with single face mode</div>
+        <h1>🧪 Thortful Diverse Face V4 Results</h1>
+        <div class="subtitle">Testing V4 face swap API with 10 diverse faces across 26 card templates</div>
     </div>
 
     <div class="stats" id="stats">
@@ -380,7 +380,11 @@
                         headers.forEach((header, index) => {
                             result[header] = values[index] ? values[index].trim().replace(/"/g, '') : '';
                         });
-                        results.push(result);
+                        
+                        // Filter to only show diverse face tests for this sub-project
+                        if (result.source_image && result.source_image.startsWith('diverse_face_')) {
+                            results.push(result);
+                        }
                     }
                 }
                 
