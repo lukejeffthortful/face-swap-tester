@@ -189,10 +189,22 @@ def run_single_face_swap(source_path, target_path, card_id, auth_headers, max_re
                 print("⚠️ No image data found in response")
                 result_filename = "no_image_returned"
             
+            # Extract generation time from various possible fields
+            generation_time = 'unknown'
+            possible_time_fields = ['generation_time', 'processing_time', 'duration', 'time_taken', 'elapsed_time']
+            for field in possible_time_fields:
+                if field in result_data and result_data[field] not in [None, '', 'unknown']:
+                    generation_time = result_data[field]
+                    break
+            
+            # If no specific generation time, use request time as fallback
+            if generation_time == 'unknown':
+                generation_time = f"{request_time:.3f}"
+            
             return {
                 'success': True,
                 'result_image': result_filename,
-                'generation_time': result_data.get('generation_time', 'unknown'),
+                'generation_time': generation_time,
                 'request_time': f"{request_time:.3f}",
                 'error_message': '',
                 'raw_response': result_data
@@ -290,69 +302,135 @@ Co-Authored-By: Claude <noreply@anthropic.com>"""
         print(f"⚠️ Unexpected error during GitHub commit: {e}")
         print("Continuing with testing...")
 
+def send_notification(message, is_error=False):
+    """Send notification about script status"""
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    status = "🚨 ERROR" if is_error else "ℹ️ INFO"
+    full_message = f"{status} [{timestamp}] {message}"
+    
+    print(full_message)
+    
+    # Write to notification file for monitoring
+    notification_file = LOGS_DIR / "script_status.log"
+    with open(notification_file, 'a', encoding='utf-8') as f:
+        f.write(f"{full_message}\n")
+    
+    # If this is an error, also write to separate error log
+    if is_error:
+        error_file = LOGS_DIR / "errors.log"
+        with open(error_file, 'a', encoding='utf-8') as f:
+            f.write(f"{full_message}\n")
+
 def run_test_batch():
-    """Run tests on all source/target image combinations"""
-    ensure_directories()
-    create_csv_header()
+    """Run tests on all source/target image combinations with auto-restart capabilities"""
+    max_failures = 10  # Maximum consecutive failures before stopping
+    consecutive_failures = 0
     
-    # Get authentication
-    print("🔐 Getting Thortful authentication...")
-    auth_headers = get_thortful_auth()
-    if not auth_headers:
-        print("❌ Failed to get authentication headers")
-        return
-    
-    # Get source and target images
-    source_images = list(SOURCE_DIR.glob('*.jpg')) + list(SOURCE_DIR.glob('*.png'))
-    target_images = list(TARGET_DIR.glob('*.jpg')) + list(TARGET_DIR.glob('*.png'))
-    
-    if not source_images:
-        print(f"❌ No source images found in {SOURCE_DIR}")
-        print(f"   Please add diverse source images (.jpg, .png) to test")
-        return
+    try:
+        send_notification("🚀 Starting comprehensive face swap testing...")
         
-    if not target_images:
-        print(f"❌ No target images found in {TARGET_DIR}")
-        print(f"   Please add target images (.jpg, .png) to test")
-        return
-    
-    print(f"📊 Found {len(source_images)} source images and {len(target_images)} target images")
-    print(f"🎯 Testing against {len(CARD_IDS)} card templates")
-    total_tests = len(source_images) * len(target_images) * len(CARD_IDS)
-    print(f"🔄 Running {total_tests} tests...")
-    
-    test_count = 0
-    success_count = 0
-    
-    for source_path in source_images:
-        for target_path in target_images:
-            for card_id in CARD_IDS:
-                test_count += 1
-                print(f"\n=== Test {test_count}/{total_tests} ===")
-                
-                # Run the test
-                result_data = run_single_face_swap(source_path, target_path, card_id, auth_headers)
-                
-                # Log the result
-                log_test_result(source_path, target_path, card_id, result_data)
-                
-                if result_data['success']:
-                    success_count += 1
-                
-                # Commit to GitHub every 2 results
-                if test_count % 2 == 0:
-                    commit_to_github(test_count, total_tests, success_count)
-                
-                # Brief pause between requests
-                time.sleep(1)
-    
-    print(f"\n✅ Testing complete!")
-    print(f"📊 Results: {success_count}/{test_count} successful")
-    print(f"📋 Detailed logs saved to: {LOG_FILE}")
-    print(f"🖼️  Result images saved to: {RESULTS_DIR}")
-    
-    # Final commit to GitHub
-    commit_to_github(test_count, total_tests, success_count)
+        ensure_directories()
+        create_csv_header()
+        
+        # Get authentication
+        print("🔐 Getting Thortful authentication...")
+        auth_headers = get_thortful_auth()
+        if not auth_headers:
+            send_notification("Failed to get authentication headers", is_error=True)
+            return
+        
+        # Get source and target images
+        source_images = list(SOURCE_DIR.glob('*.jpg')) + list(SOURCE_DIR.glob('*.png'))
+        target_images = list(TARGET_DIR.glob('*.jpg')) + list(TARGET_DIR.glob('*.png'))
+        
+        if not source_images:
+            send_notification(f"No source images found in {SOURCE_DIR}", is_error=True)
+            return
+            
+        if not target_images:
+            send_notification(f"No target images found in {TARGET_DIR}", is_error=True)
+            return
+        
+        print(f"📊 Found {len(source_images)} source images and {len(target_images)} target images")
+        print(f"🎯 Testing against {len(CARD_IDS)} card templates")
+        total_tests = len(source_images) * len(target_images) * len(CARD_IDS)
+        print(f"🔄 Running {total_tests} tests...")
+        
+        send_notification(f"Testing {total_tests} combinations ({len(source_images)} sources × {len(target_images)} targets × {len(CARD_IDS)} cards)")
+        
+        test_count = 0
+        success_count = 0
+        
+        for source_path in source_images:
+            for target_path in target_images:
+                for card_id in CARD_IDS:
+                    test_count += 1
+                    print(f"\n=== Test {test_count}/{total_tests} ===")
+                    
+                    try:
+                        # Run the test
+                        result_data = run_single_face_swap(source_path, target_path, card_id, auth_headers)
+                        
+                        # Log the result
+                        log_test_result(source_path, target_path, card_id, result_data)
+                        
+                        if result_data['success']:
+                            success_count += 1
+                            consecutive_failures = 0  # Reset failure counter on success
+                            
+                            # Log every 10th success
+                            if success_count % 10 == 0:
+                                send_notification(f"Progress: {success_count} successful tests completed ({test_count}/{total_tests} total)")
+                        else:
+                            consecutive_failures += 1
+                            
+                            # Check if we've hit too many consecutive failures
+                            if consecutive_failures >= max_failures:
+                                error_msg = f"❌ {max_failures} consecutive failures. Stopping to prevent infinite loop."
+                                send_notification(error_msg, is_error=True)
+                                send_notification(f"Last error: {result_data.get('error_message', 'Unknown error')}", is_error=True)
+                                return
+                        
+                        # Commit to GitHub every 2 results
+                        if test_count % 2 == 0:
+                            try:
+                                commit_to_github(test_count, total_tests, success_count)
+                            except Exception as e:
+                                send_notification(f"GitHub commit failed: {e}", is_error=True)
+                        
+                        # Brief pause between requests
+                        time.sleep(1)
+                        
+                    except KeyboardInterrupt:
+                        send_notification("❌ Script interrupted by user", is_error=True)
+                        break
+                    except Exception as e:
+                        consecutive_failures += 1
+                        send_notification(f"Unexpected error in test {test_count}: {e}", is_error=True)
+                        
+                        if consecutive_failures >= max_failures:
+                            send_notification(f"❌ Too many consecutive errors. Stopping.", is_error=True)
+                            return
+                        
+                        # Continue with next test after error
+                        time.sleep(5)
+        
+        send_notification(f"✅ Testing completed! Results: {success_count}/{test_count} successful")
+        print(f"\n✅ Testing complete!")
+        print(f"📊 Results: {success_count}/{test_count} successful")
+        print(f"📋 Detailed logs saved to: {LOG_FILE}")
+        print(f"🖼️  Result images saved to: {RESULTS_DIR}")
+        
+        # Final commit to GitHub
+        try:
+            commit_to_github(test_count, total_tests, success_count)
+            send_notification(f"Final results committed to GitHub: {success_count}/{test_count} successful")
+        except Exception as e:
+            send_notification(f"Final GitHub commit failed: {e}", is_error=True)
+            
+    except Exception as e:
+        send_notification(f"❌ Critical error in run_test_batch: {e}", is_error=True)
+        raise
 
 def main():
     """Main function"""
