@@ -335,6 +335,33 @@
     <script>
         let testResults = [];
         
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+            
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                const nextChar = line[i + 1];
+                
+                if (char === '"') {
+                    if (inQuotes && nextChar === '"') {
+                        current += '"';
+                        i++; // Skip next quote
+                    } else {
+                        inQuotes = !inQuotes;
+                    }
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current);
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            result.push(current);
+            return result;
+        }
+
         async function loadCSVData() {
             try {
                 const response = await fetch('logs/thortful_diverse_face_tests.csv');
@@ -343,15 +370,15 @@
                 const lines = csvText.split('\n').filter(line => line.trim());
                 if (lines.length <= 1) return [];
                 
-                const headers = lines[0].split(',');
+                const headers = parseCSVLine(lines[0]).map(h => h.trim());
                 const results = [];
                 
                 for (let i = 1; i < lines.length; i++) {
-                    const values = lines[i].split(',');
-                    if (values.length === headers.length) {
+                    const values = parseCSVLine(lines[i]);
+                    if (values.length >= headers.length) {
                         const result = {};
                         headers.forEach((header, index) => {
-                            result[header.trim()] = values[index].trim().replace(/"/g, '');
+                            result[header] = values[index] ? values[index].trim().replace(/"/g, '') : '';
                         });
                         results.push(result);
                     }
@@ -400,7 +427,7 @@
         
         function updateFilters() {
             const sources = [...new Set(testResults.map(r => r.source_image))];
-            const cards = [...new Set(testResults.map(r => r.card_id))];
+            const targets = [...new Set(testResults.map(r => r.target_image))];
             
             const sourceSelect = document.getElementById('sourceFilter');
             const cardSelect = document.getElementById('cardFilter');
@@ -410,10 +437,9 @@
                 sourceSelect.innerHTML += `<option value="${source}">${source}</option>`;
             });
             
-            cardSelect.innerHTML = '<option value="all">All Cards</option>';
-            cards.forEach(card => {
-                const cardShort = card ? card.substring(0, 8) : 'unknown';
-                cardSelect.innerHTML += `<option value="${card}">Card ${cardShort}</option>`;
+            cardSelect.innerHTML = '<option value="all">All Templates</option>';
+            targets.forEach(target => {
+                cardSelect.innerHTML += `<option value="${target}">${target}</option>`;
             });
         }
         
@@ -455,13 +481,14 @@
                 const sourceImg = `diverse-source-images/${result.source_image}`;
                 const cardId = result.card_id || 'unknown';
                 const cardIdShort = cardId.substring(0, 8);
+                const targetTemplate = result.target_image || `card_template_${cardIdShort}`;
                 const resultImg = isSuccess && result.result_image !== 'error' ? `results/${result.result_image}` : null;
                 
                 return `
                     <div class="test-card ${statusClass}">
                         <div class="card-header">
                             <div class="test-title">
-                                ${result.source_image} → Card ${cardIdShort}
+                                ${result.source_image} → ${targetTemplate}
                                 <span class="status-badge ${statusBadge}">${statusText}</span>
                             </div>
                             <div class="test-meta">${timestamp} • Card ID: ${cardId}</div>
@@ -473,10 +500,10 @@
                                     <img src="${sourceImg}" alt="Source" class="test-image" onerror="this.style.display='none'">
                                 </div>
                                 <div class="image-group">
-                                    <div class="image-label">Card Template</div>
+                                    <div class="image-label">Target Template</div>
                                     <div style="height: 150px; display: flex; align-items: center; justify-content: center; background: #e3f2fd; border-radius: 8px; color: #1976d2; font-weight: 500; text-align: center; padding: 10px;">
-                                        Card ${cardIdShort}<br>
-                                        <span style="font-size: 0.8em; color: #666;">(Template defined by API)</span>
+                                        ${targetTemplate}<br>
+                                        <span style="font-size: 0.8em; color: #666;">ID: ${cardIdShort}</span>
                                     </div>
                                 </div>
                                 ${resultImg ? `

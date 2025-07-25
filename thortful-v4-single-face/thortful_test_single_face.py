@@ -28,35 +28,37 @@ RESULTS_DIR = Path("results")
 LOGS_DIR = Path("logs")
 LOG_FILE = LOGS_DIR / "thortful_diverse_face_tests.csv"
 
-# List of card IDs to test against
-CARD_IDS = [
-    "67816ae75990fc276575cd07",
-    "6855c0b6ebba0773538e8a15",
-    "66facc0a21fd6d6f34901ae6",
-    "66e01c85ded8e0212043629d",
-    "67d219a67d3f9803484845be",
-    "68497934ad723e68b9792266",
-    "680b65d36010d4505cbac642",
-    "6854af2294654d25b467e33b",
-    "68097dd5b46c0a5b4e3543f8",
-    "680b635ab4259a1b1933d009",
-    "67a5f37990a11d443906b288",
-    "6855c9e992228930bed19c3f",
-    "68470d697fd84e35a7c920ea",
-    "67c6da4db6fbc326d4bcaafb",
-    "680b651fe5a5d97911059508",
-    "6806c1a93e7fe4028a4b7cb0",
-    "6815e812b4259a1b1933d422",
-    "68470f0a7ecd4e71abd58c2a",
-    "6806ad073175fb6967ec2768",
-    "6820935e0e882b1e7d33c35a",
-    "66e450c1e69c5e3a7f18b418",
-    "66ea83ce2975504ebe65683b",
-    "67a22d9106eb6b5e764650bc",
-    "68097b1dbb56f6239add6126",
-    "678e67f42c87c917d7245ad0",
-    "67c5d88150ca0b7dedab7d56"
-]
+# List of card IDs to test against - mapping to target template names
+CARD_TARGETS = {
+    "67816ae75990fc276575cd07": "card_template_01",
+    "6855c0b6ebba0773538e8a15": "card_template_02", 
+    "66facc0a21fd6d6f34901ae6": "card_template_03",
+    "66e01c85ded8e0212043629d": "card_template_04",
+    "67d219a67d3f9803484845be": "card_template_05",
+    "68497934ad723e68b9792266": "card_template_06",
+    "680b65d36010d4505cbac642": "card_template_07",
+    "6854af2294654d25b467e33b": "card_template_08",
+    "68097dd5b46c0a5b4e3543f8": "card_template_09",
+    "680b635ab4259a1b1933d009": "card_template_10",
+    "67a5f37990a11d443906b288": "card_template_11",
+    "6855c9e992228930bed19c3f": "card_template_12",
+    "68470d697fd84e35a7c920ea": "card_template_13",
+    "67c6da4db6fbc326d4bcaafb": "card_template_14",
+    "680b651fe5a5d97911059508": "card_template_15",
+    "6806c1a93e7fe4028a4b7cb0": "card_template_16",
+    "6815e812b4259a1b1933d422": "card_template_17",
+    "68470f0a7ecd4e71abd58c2a": "card_template_18",
+    "6806ad073175fb6967ec2768": "card_template_19",
+    "6820935e0e882b1e7d33c35a": "card_template_20",
+    "66e450c1e69c5e3a7f18b418": "card_template_21",
+    "66ea83ce2975504ebe65683b": "card_template_22",
+    "67a22d9106eb6b5e764650bc": "card_template_23",
+    "68097b1dbb56f6239add6126": "card_template_24",
+    "678e67f42c87c917d7245ad0": "card_template_25",
+    "67c5d88150ca0b7dedab7d56": "card_template_26"
+}
+
+CARD_IDS = list(CARD_TARGETS.keys())
 
 def ensure_directories():
     """Create necessary directories if they don't exist"""
@@ -250,12 +252,15 @@ def log_test_result(source_path, target_path, card_id, result_data):
     """Log test result to CSV file"""
     timestamp = datetime.now().isoformat()
     
+    # Get the proper target template name from card_id
+    target_template = CARD_TARGETS.get(card_id, f"card_template_{card_id[:8]}")
+    
     with open(LOG_FILE, 'a', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow([
             timestamp,
             source_path.name,
-            target_path.name,
+            target_template,  # Use the card template name instead of target_path.name
             card_id,
             result_data['result_image'],
             'v4-thortful',
@@ -264,7 +269,7 @@ def log_test_result(source_path, target_path, card_id, result_data):
             result_data['generation_time'],
             result_data['request_time'],
             result_data['error_message'],
-            f'Thortful API diverse face test - Card {card_id[:8]}'
+            f'Thortful API diverse face test - {target_template}'
         ])
 
 def commit_to_github(test_count, total_tests, success_count):
