@@ -456,7 +456,7 @@
                 }
                 
                 if (sourceFilter !== 'all' && result.source_image !== sourceFilter) return false;
-                if (cardFilter !== 'all' && result.card_id !== cardFilter) return false;
+                if (cardFilter !== 'all' && result.target_image !== cardFilter) return false;
                 
                 return true;
             });
