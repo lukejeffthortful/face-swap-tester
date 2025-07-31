@@ -251,5 +251,13 @@ if __name__ == "__main__":
                 print(f"  {key}: {value[:10]}...")
             else:
                 print(f"  {key}: {value}")
+        
+        print("\n" + "⚠️ " * 20)
+        print("🚨 CRITICAL REMINDER FOR API CALLS:")
+        print("   - Use minimum 120s timeout (recommended: 180s)")
+        print("   - Face swap processing takes 45-60+ seconds")
+        print("   - Short timeouts cause false failures!")
+        print("   - Example: requests.post(url, headers=headers, timeout=180)")
+        print("⚠️ " * 20)
     else:
         print("\n❌ Authentication failed!")

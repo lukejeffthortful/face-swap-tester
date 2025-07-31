@@ -1,0 +1,22 @@
+[
+  {
+    "test_number": 1,
+    "timestamp": "2025-07-25T15:14:12.207712",
+    "endpoint": "https://www.thortful.com/api/v1/faceswap?variation=true",
+    "duration_seconds": 76.35125398635864,
+    "timeout_setting": 150,
+    "status_code": 200,
+    "source_file": "diverse_face_02.jpg",
+    "target_file": "target_01.png",
+    "card_id": "67816ae75990fc276575cd07",
+    "payload_size": 103514,
+    "success": true,
+    "exceeded_60s": true,
+    "has_image": true,
+    "response_keys": [
+      "image",
+      "draft_id"
+    ],
+    "is_proof": true
+  }
+]

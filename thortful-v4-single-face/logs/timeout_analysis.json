@@ -1,0 +1,38 @@
+[
+  {
+    "test_number": 1,
+    "timestamp": "2025-07-25T15:03:46.722962",
+    "duration_seconds": 45.84939980506897,
+    "timeout_setting": 70,
+    "status_code": 200,
+    "source_file": "diverse_face_02.jpg",
+    "target_file": "target_01.png",
+    "card_id": "67816ae75990fc276575cd07",
+    "payload_size": 103514,
+    "completed": "success"
+  },
+  {
+    "test_number": 2,
+    "timestamp": "2025-07-25T15:04:47.366601",
+    "duration_seconds": 57.640215158462524,
+    "timeout_setting": 70,
+    "status_code": 200,
+    "source_file": "diverse_face_03.jpg",
+    "target_file": "target_02.png",
+    "card_id": "6855c0b6ebba0773538e8a15",
+    "payload_size": 111522,
+    "completed": "success"
+  },
+  {
+    "test_number": 3,
+    "timestamp": "2025-07-25T15:06:00.476158",
+    "duration_seconds": 70.10139203071594,
+    "timeout_setting": 70,
+    "status_code": "CLIENT_TIMEOUT",
+    "source_file": "diverse_face_01.jpg",
+    "target_file": "target_01.png",
+    "card_id": "66facc0a21fd6d6f34901ae6",
+    "completed": "timeout",
+    "error_type": "client_timeout"
+  }
+]

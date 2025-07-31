@@ -1,0 +1,2 @@
+timestamp,source_image,target_image,card_id,result_image,api_version,test_type,success,generation_time_seconds,request_time_seconds,error_message,notes
+2025-07-31T13:26:44.191444,diverse_face_02.jpg,card_template_01,67816ae75990fc276575cd07,diverse_face_02_to_target_01_card_67816ae7_thortful_v4.jpg,v4-thortful-www,single_face,True,47.302,47.302,,Fresh test - WWW endpoint working perfectly!

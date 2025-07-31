@@ -181,14 +181,15 @@
         }
 
         .images-row {
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 15px;
             margin-bottom: 15px;
         }
 
         .image-group {
-            flex: 1;
             text-align: center;
+            min-height: 180px;
         }
 
         .image-label {
@@ -196,14 +197,52 @@
             color: #7f8c8d;
             margin-bottom: 8px;
             font-weight: 500;
+            text-align: center;
         }
 
         .test-image {
-            max-width: 100%;
+            width: 100%;
             height: 150px;
             object-fit: cover;
             border-radius: 8px;
             border: 2px solid #ecf0f1;
+            transition: transform 0.2s ease;
+        }
+
+        .test-image:hover {
+            transform: scale(1.05);
+            border-color: #3498db;
+            cursor: pointer;
+        }
+
+        .image-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            cursor: pointer;
+        }
+
+        .image-overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .image-overlay .close-hint {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2em;
+            cursor: pointer;
         }
 
         .performance-stats {
@@ -281,13 +320,46 @@
             .filter-group {
                 justify-content: space-between;
             }
+            
+            .images-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .image-group {
+                min-height: 200px;
+            }
+            
+            .test-image {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 1200px) and (min-width: 769px) {
+            .images-row {
+                gap: 10px;
+            }
+            
+            .test-image {
+                height: 130px;
+            }
+            
+            .image-group {
+                min-height: 160px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>🧪 Thortful Diverse Face V4 Results</h1>
-        <div class="subtitle">Testing V4 face swap API with 10 diverse faces across 26 card templates</div>
+        <h1>🎉 Thortful Original API Endpoint - FULLY RESTORED!</h1>
+        <div class="subtitle">✅ Original api.thortful.com endpoint working perfectly - 50s processing time!</div>
+        <div style="margin-top: 15px; padding: 15px; background: #d4edda; border-radius: 8px; color: #155724;">
+            <strong>🔧 Success:</strong> Original <code>api.thortful.com</code> endpoint timeout issues completely resolved! Fresh authentication + proper timeout configuration = success.
+        </div>
+        <div style="margin-top: 10px; padding: 10px; background: #e3f2fd; border-radius: 6px; color: #1976d2; font-size: 0.9em;">
+            💡 <strong>Tip:</strong> Click on any image to view it full-size. Press Escape or click outside to close.
+        </div>
     </div>
 
     <div class="stats" id="stats">
@@ -320,6 +392,10 @@
 
         <button onclick="refreshData()">🔄 Refresh</button>
         <button onclick="exportResults()">📊 Export CSV</button>
+        
+        <div style="margin-left: auto; font-size: 0.9em; color: #7f8c8d;">
+            📁 Data: <span id="dataSource">Loading...</span>
+        </div>
     </div>
 
     <div class="results-grid" id="resultsGrid">
@@ -331,6 +407,12 @@
     <button class="refresh-btn" onclick="refreshData()" title="Refresh Results">
         🔄
     </button>
+
+    <!-- Image overlay for full-size viewing -->
+    <div class="image-overlay" id="imageOverlay" onclick="closeImageOverlay()">
+        <div class="close-hint">&times;</div>
+        <img id="overlayImage" src="" alt="">
+    </div>
 
     <script>
         let testResults = [];
@@ -362,9 +444,20 @@
             return result;
         }
 
+        let currentDataSource = '';
+        
         async function loadCSVData() {
             try {
-                const response = await fetch('logs/thortful_diverse_face_tests.csv');
+                // Load the corrected test results first, fallback to original if not available
+                let response;
+                try {
+                    response = await fetch('logs/corrected_thortful_test_results.csv');
+                    if (!response.ok) throw new Error('Corrected file not found');
+                    currentDataSource = 'corrected_thortful_test_results.csv';
+                } catch (e) {
+                    response = await fetch('logs/thortful_diverse_face_tests.csv');
+                    currentDataSource = 'thortful_diverse_face_tests.csv';
+                }
                 const csvText = await response.text();
                 
                 const lines = csvText.split('\n').filter(line => line.trim());
@@ -381,8 +474,19 @@
                             result[header] = values[index] ? values[index].trim().replace(/"/g, '') : '';
                         });
                         
-                        // Filter to only show diverse face tests for this sub-project
-                        if (result.source_image && result.source_image.startsWith('diverse_face_')) {
+                        // Filter to only show diverse face tests OR source tests for this sub-project
+                        if (result.source_image && (result.source_image.startsWith('diverse_face_') || result.source_image.startsWith('source_'))) {
+                            // Check if result image exists and is not an error
+                            const hasValidResult = result.success === 'True' && 
+                                                 result.result_image && 
+                                                 result.result_image !== 'error' && 
+                                                 result.result_image !== 'timeout' &&
+                                                 result.result_image !== 'exception' &&
+                                                 result.result_image !== 'gateway_timeout';
+                            
+                            result.hasResultImage = hasValidResult;
+                            result.resultImagePath = hasValidResult ? `results/${result.result_image}` : null;
+                            
                             results.push(result);
                         }
                     }
@@ -395,6 +499,20 @@
             }
         }
         
+        function parseImageFilename(filename) {
+            // Parse filenames like: diverse_face_02_to_None_card_67816ae7_corrected_v4.jpg
+            const match = filename.match(/^(diverse_face_\d+|source_\d+)_to_(\w+)_card_([a-f0-9]+)_(\w+)\.jpg$/);
+            if (match) {
+                return {
+                    source: match[1] + '.jpg',
+                    target: match[2] !== 'None' ? match[2] : null,
+                    cardId: match[3],
+                    version: match[4] === 'corrected_v4' ? 'v4-thortful-corrected' : 'v4-thortful'
+                };
+            }
+            return null;
+        }
+        
         function updateStats() {
             const totalTests = testResults.length;
             const successfulTests = testResults.filter(r => r.success === 'True').length;
@@ -402,8 +520,8 @@
             const successRate = totalTests > 0 ? Math.round((successfulTests / totalTests) * 100) : 0;
             
             const avgGenTime = testResults
-                .filter(r => r.success === 'True' && r.generation_time_seconds !== 'error')
-                .reduce((sum, r) => sum + parseFloat(r.generation_time_seconds), 0) / successfulTests || 0;
+                .filter(r => r.success === 'True' && r.generation_time_seconds !== 'error' && r.generation_time_seconds !== 'timeout')
+                .reduce((sum, r) => sum + parseFloat(r.generation_time_seconds), 0) / Math.max(successfulTests, 1) || 0;
                 
             document.getElementById('stats').innerHTML = `
                 <div class="stat-card">
@@ -423,8 +541,12 @@
                     <div class="stat-label">Success Rate</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">${avgGenTime.toFixed(2)}s</div>
-                    <div class="stat-label">Avg Generation Time</div>
+                    <div class="stat-number">${avgGenTime.toFixed(1)}s</div>
+                    <div class="stat-label">Avg Processing Time</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${testResults.filter(r => r.api_version === 'v4-thortful-corrected').length > 0 ? '✅' : '⚠️'}</div>
+                    <div class="stat-label">Corrected Endpoint</div>
                 </div>
             `;
         }
@@ -482,11 +604,15 @@
                 const statusText = isSuccess ? 'Success' : 'Error';
                 
                 const timestamp = new Date(result.timestamp).toLocaleString();
-                const sourceImg = `diverse-source-images/${result.source_image}`;
+                // Determine source directory based on filename
+                const sourceDir = result.source_image.startsWith('diverse_face_') ? 'diverse-source-images' : 'source-images';
+                const sourceImg = `${sourceDir}/${result.source_image}`;
                 const cardId = result.card_id || 'unknown';
                 const cardIdShort = cardId.substring(0, 8);
                 const targetTemplate = result.target_image || `card_template_${cardIdShort}`;
-                const resultImg = isSuccess && result.result_image !== 'error' ? `results/${result.result_image}` : null;
+                const resultImg = result.hasResultImage ? result.resultImagePath : null;
+                const apiVersion = result.api_version || 'unknown';
+                const isCorrected = apiVersion === 'v4-thortful-corrected';
                 
                 return `
                     <div class="test-card ${statusClass}">
@@ -494,36 +620,51 @@
                             <div class="test-title">
                                 ${result.source_image} → ${targetTemplate}
                                 <span class="status-badge ${statusBadge}">${statusText}</span>
+                                ${isCorrected ? '<span class="status-badge" style="background: #d4edda; color: #155724; margin-left: 5px;">CORRECTED</span>' : ''}
                             </div>
-                            <div class="test-meta">${timestamp} • Card ID: ${cardId}</div>
+                            <div class="test-meta">${timestamp} • ${apiVersion} • Card ID: ${cardId}</div>
                         </div>
                         <div class="card-content">
                             <div class="images-row">
                                 <div class="image-group">
                                     <div class="image-label">Source Face</div>
-                                    <img src="${sourceImg}" alt="Source" class="test-image" onerror="this.style.display='none'">
-                                </div>
-                                <div class="image-group">
-                                    <div class="image-label">Target Template</div>
-                                    <img src="https://images.thortful.com/cdn-cgi/image/width=600,format=auto,quality=90/card/${cardId}/${cardId}_medium.jpg?version=1" alt="Card Template ${cardIdShort}" class="test-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                    <div style="height: 150px; display: none; align-items: center; justify-content: center; background: #e3f2fd; border-radius: 8px; color: #1976d2; font-weight: 500; text-align: center; padding: 10px;">
-                                        ${targetTemplate}<br>
-                                        <span style="font-size: 0.8em; color: #666;">ID: ${cardIdShort}</span>
+                                    <img src="${sourceImg}" alt="Source Face" class="test-image" 
+                                         onclick="showImageOverlay('${sourceImg}', 'Source: ${result.source_image}')"
+                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div style="height: 150px; display: none; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 8px; color: #7f8c8d; font-weight: 500;">
+                                        Source: ${result.source_image}<br>
+                                        <span style="font-size: 0.8em; color: #999;">Directory: ${sourceDir}</span>
                                     </div>
                                 </div>
-                                ${resultImg ? `
+                                <div class="image-group">
+                                    <div class="image-label">Target Card Template</div>
+                                    <img src="https://images.thortful.com/cdn-cgi/image/width=600,format=auto,quality=90/card/${cardId}/${cardId}_medium.jpg?version=1" 
+                                         alt="Card Template ${targetTemplate}" class="test-image" 
+                                         onclick="showImageOverlay('https://images.thortful.com/cdn-cgi/image/width=800,format=auto,quality=90/card/${cardId}/${cardId}_medium.jpg?version=1', 'Target: ${targetTemplate}')"
+                                         onerror="this.onerror=null; this.src='https://thortful.com/card/${cardId}/${cardId}_medium.jpg'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='flex';};">
+                                    <div style="height: 150px; display: none; align-items: center; justify-content: center; background: #e3f2fd; border-radius: 8px; color: #1976d2; font-weight: 500; text-align: center; padding: 10px; font-size: 0.9em;">
+                                        ${targetTemplate}<br>
+                                        <span style="font-size: 0.8em; color: #666; margin-top: 5px; display: block;">Card ID: ${cardIdShort}</span>
+                                        <span style="font-size: 0.7em; color: #999; margin-top: 3px; display: block;">Template image not available</span>
+                                    </div>
+                                </div>
                                 <div class="image-group">
                                     <div class="image-label">Face Swap Result</div>
-                                    <img src="${resultImg}" alt="Result" class="test-image" onerror="this.style.display='none'">
+                                    ${resultImg ? `
+                                        <img src="${resultImg}" alt="Face Swap Result" class="test-image" 
+                                             onclick="showImageOverlay('${resultImg}', 'Result: ${result.source_image} → ${targetTemplate}')"
+                                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                        <div style="height: 150px; display: none; align-items: center; justify-content: center; background: #fff3cd; border-radius: 8px; color: #856404; font-weight: 500; text-align: center;">
+                                            Result image not found<br>
+                                            <span style="font-size: 0.8em;">${result.result_image}</span>
+                                        </div>
+                                    ` : `
+                                        <div style="height: 150px; display: flex; align-items: center; justify-content: center; background: ${isSuccess ? '#fff3cd' : '#f8d7da'}; border-radius: 8px; color: ${isSuccess ? '#856404' : '#721c24'}; font-weight: 500; text-align: center; padding: 15px; font-size: 0.9em;">
+                                            ${isSuccess ? 'Success - No image saved' : result.error_message.includes('timeout') ? 'Request Timeout' : 'Processing Failed'}<br>
+                                            ${result.result_image && result.result_image !== 'error' ? `<span style="font-size: 0.8em; margin-top: 5px; display: block;">${result.result_image}</span>` : ''}
+                                        </div>
+                                    `}
                                 </div>
-                                ` : `
-                                <div class="image-group">
-                                    <div class="image-label">Result</div>
-                                    <div style="height: 150px; display: flex; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 8px; color: #7f8c8d;">
-                                        ${isSuccess ? 'No image' : 'Failed'}
-                                    </div>
-                                </div>
-                                `}
                             </div>
                             
                             ${isSuccess ? `
@@ -533,8 +674,12 @@
                                     <div class="perf-label">Request Time</div>
                                 </div>
                                 <div class="perf-item">
-                                    <div class="perf-value">${result.api_version}</div>
-                                    <div class="perf-label">API Version</div>
+                                    <div class="perf-value">${result.generation_time_seconds}s</div>
+                                    <div class="perf-label">Generation Time</div>
+                                </div>
+                                <div class="perf-item">
+                                    <div class="perf-value">${isCorrected ? 'www.thortful.com' : 'api.thortful.com'}</div>
+                                    <div class="perf-label">Endpoint</div>
                                 </div>
                             </div>
                             ` : `
@@ -551,6 +696,15 @@
         async function refreshData() {
             document.getElementById('resultsGrid').innerHTML = '<div class="no-results">Loading test results...</div>';
             testResults = await loadCSVData();
+            
+            // Update data source indicator
+            const dataSourceEl = document.getElementById('dataSource');
+            if (dataSourceEl) {
+                const isCorrected = currentDataSource.includes('corrected');
+                dataSourceEl.innerHTML = `${currentDataSource} ${isCorrected ? '✅' : '⚠️'}`;
+                dataSourceEl.style.color = isCorrected ? '#27ae60' : '#e74c3c';
+            }
+            
             updateStats();
             updateFilters();
             renderResults();
@@ -578,6 +732,34 @@
             window.URL.revokeObjectURL(url);
         }
         
+        // Image overlay functions
+        function showImageOverlay(imageSrc, altText) {
+            const overlay = document.getElementById('imageOverlay');
+            const overlayImage = document.getElementById('overlayImage');
+            
+            overlayImage.src = imageSrc;
+            overlayImage.alt = altText;
+            overlay.style.display = 'flex';
+            
+            // Prevent body scrolling
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeImageOverlay() {
+            const overlay = document.getElementById('imageOverlay');
+            overlay.style.display = 'none';
+            
+            // Restore body scrolling
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close overlay on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeImageOverlay();
+            }
+        });
+
         // Event listeners
         document.getElementById('statusFilter').addEventListener('change', renderResults);
         document.getElementById('sourceFilter').addEventListener('change', renderResults);

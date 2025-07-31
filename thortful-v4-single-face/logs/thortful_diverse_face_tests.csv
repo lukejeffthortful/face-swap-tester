@@ -697,3 +697,7 @@ timestamp,source_image,target_image,card_id,result_image,api_version,test_type,s
 2025-07-25T11:38:33.622692,diverse_face_02.jpg,target_02.png,6806c1a93e7fe4028a4b7cb0,error,v4-thortful,single_face,False,error,0.153,HTTP 403: ,Thortful API diverse face test - Card 6806c1a9
 2025-07-25T11:38:35.986607,diverse_face_02.jpg,target_02.png,6815e812b4259a1b1933d422,error,v4-thortful,single_face,False,error,0.195,HTTP 403: ,Thortful API diverse face test - Card 6815e812
 2025-07-25T11:38:37.200181,diverse_face_02.jpg,target_02.png,68470f0a7ecd4e71abd58c2a,error,v4-thortful,single_face,False,error,0.206,HTTP 403: ,Thortful API diverse face test - Card 68470f0a
+2025-07-25T11:38:39.347201,diverse_face_02.jpg,target_02.png,6806ad073175fb6967ec2768,error,v4-thortful,single_face,False,error,0.156,HTTP 403: ,Thortful API diverse face test - Card 6806ad07
+2025-07-31T13:06:41.317443,diverse_face_01.jpg,card_template_01,67816ae75990fc276575cd07,error,v4-thortful,single_face,False,error,0.147,HTTP 403: ,Thortful API diverse face test - card_template_01
+2025-07-31T13:19:21.332085,diverse_face_01.jpg,card_template_01,67816ae75990fc276575cd07,diverse_face_01_to_target_01_card_67816ae7_thortful_v4.jpg,v4-thortful,single_face,True,50.015,50.015,,Thortful API diverse face test - card_template_01
+2025-07-31T13:26:44.191444,diverse_face_02.jpg,card_template_01,67816ae75990fc276575cd07,diverse_face_02_to_target_01_card_67816ae7_thortful_v4.jpg,v4-thortful,single_face,True,47.302,47.302,,Thortful API diverse face test - card_template_01

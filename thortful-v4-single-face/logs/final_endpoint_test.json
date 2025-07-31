@@ -1,0 +1,38 @@
+[
+  {
+    "test_number": 1,
+    "timestamp": "2025-07-25T15:07:19.366371",
+    "endpoint": "https://www.thortful.com/api/v1/faceswap?variation=true",
+    "duration_seconds": 44.3703408241272,
+    "timeout_setting": 120,
+    "status_code": 200,
+    "source_file": "diverse_face_02.jpg",
+    "target_file": "target_01.png",
+    "card_id": "66facc0a21fd6d6f34901ae6",
+    "payload_size": 103514,
+    "success": true,
+    "has_image": true,
+    "response_keys": [
+      "image",
+      "draft_id"
+    ]
+  },
+  {
+    "test_number": 2,
+    "timestamp": "2025-07-25T15:08:10.333248",
+    "endpoint": "https://www.thortful.com/api/v1/faceswap?variation=true",
+    "duration_seconds": 45.95952486991882,
+    "timeout_setting": 120,
+    "status_code": 200,
+    "source_file": "diverse_face_04.jpg",
+    "target_file": "target_02.png",
+    "card_id": "66e01c85ded8e0212043629d",
+    "payload_size": 275346,
+    "success": true,
+    "has_image": true,
+    "response_keys": [
+      "image",
+      "draft_id"
+    ]
+  }
+]

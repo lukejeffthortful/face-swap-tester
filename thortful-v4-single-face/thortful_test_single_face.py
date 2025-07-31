@@ -21,7 +21,7 @@ from pathlib import Path
 from thortful_auth import get_thortful_auth
 
 # Configuration
-API_ENDPOINT = "https://api.thortful.com/v1/faceswap?variation=true"
+API_ENDPOINT = "https://www.thortful.com/api/v1/faceswap?variation=true"
 SOURCE_DIR = Path("diverse-source-images")
 TARGET_DIR = Path("target-images")
 RESULTS_DIR = Path("results")
