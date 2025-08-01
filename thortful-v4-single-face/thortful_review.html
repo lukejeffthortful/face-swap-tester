@@ -448,16 +448,10 @@
         
         async function loadCSVData() {
             try {
-                // Load the corrected test results first, fallback to original if not available
-                let response;
-                try {
-                    response = await fetch('logs/corrected_thortful_test_results.csv');
-                    if (!response.ok) throw new Error('Corrected file not found');
-                    currentDataSource = 'corrected_thortful_test_results.csv';
-                } catch (e) {
-                    response = await fetch('logs/thortful_diverse_face_tests.csv');
-                    currentDataSource = 'thortful_diverse_face_tests.csv';
-                }
+                // Load the main test results file
+                const response = await fetch('logs/main_test_results.csv');
+                if (!response.ok) throw new Error('Main test results file not found');
+                currentDataSource = 'main_test_results.csv';
                 const csvText = await response.text();
                 
                 const lines = csvText.split('\n').filter(line => line.trim());
@@ -604,8 +598,8 @@
                 const statusText = isSuccess ? 'Success' : 'Error';
                 
                 const timestamp = new Date(result.timestamp).toLocaleString();
-                // Determine source directory based on filename
-                const sourceDir = result.source_image.startsWith('diverse_face_') ? 'diverse-source-images' : 'source-images';
+                // Use source-images directory (updated location)
+                const sourceDir = 'source-images';
                 const sourceImg = `${sourceDir}/${result.source_image}`;
                 const cardId = result.card_id || 'unknown';
                 const cardIdShort = cardId.substring(0, 8);

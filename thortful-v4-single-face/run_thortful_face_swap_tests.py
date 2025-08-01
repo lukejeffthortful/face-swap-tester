@@ -22,11 +22,11 @@ from thortful_auth import get_thortful_auth
 
 # Configuration
 API_ENDPOINT = "https://www.thortful.com/api/v1/faceswap?variation=true"
-SOURCE_DIR = Path("diverse-source-images")
+SOURCE_DIR = Path("source-images")
 TARGET_DIR = Path("target-images")
 RESULTS_DIR = Path("results")
 LOGS_DIR = Path("logs")
-LOG_FILE = LOGS_DIR / "thortful_diverse_face_tests.csv"
+LOG_FILE = LOGS_DIR / "main_test_results.csv"
 
 # List of card IDs to test against - mapping to target template names
 CARD_TARGETS = {
@@ -446,7 +446,7 @@ def main():
         if sys.argv[1] == '--single':
             # Single test mode
             if len(sys.argv) < 4:
-                print("Usage: python thortful_test_single_face.py --single <source_image> <target_image> [card_id]")
+                print("Usage: python run_thortful_face_swap_tests.py --single <source_image> <target_image> [card_id]")
                 return
             
             source_path = Path(sys.argv[2])
@@ -480,7 +480,7 @@ def main():
             else:
                 print(f"❌ Test failed: {result_data['error_message']}")
         else:
-            print("Usage: python thortful_test_single_face.py [--single <source> <target>]")
+            print("Usage: python run_thortful_face_swap_tests.py [--single <source> <target>]")
     else:
         # Batch test mode
         run_test_batch()

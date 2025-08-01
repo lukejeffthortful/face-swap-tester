@@ -1,0 +1,12 @@
+{
+  "API_KEY": "xoobe9UC2l8yOHIMy89rhRCm",
+  "API_SECRET": "IfO5XWgKH4UE3k4vQwzjGULva/cuOwSrjpN0+14AiVclPwab",
+  "user_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX3R5cGUiOiJ0aG9ydGZ1bCIsInVzZXJfaWQiOiI2NDQ5MmMzNDU1ZTQ2ZjAzZTVjOGNlMzMiLCJwcm9maWxlX2lkIjoiNjQ0OTJjMzQ1NWU0NmYwM2U1YzhjZTMyIiwicm9sZXMiOiJDUkVBVE9SIiwibG9naW5fcGxhdGZvcm0iOiJUSE9SVEZVTCIsImF1dGhfc2Vzc2lvbiI6InZrbFg4YjgxS0wiLCJleHAiOjE3NTQwNDg0MTcxMzN9.zlS0mkz0pzTKvO5mW8ViId0ZOFQrnNRsy5NjiVW3Pd0",
+  "x-thortful-customer-id": "64492c3455e46f03e5c8ce32",
+  "Content-Type": "application/json",
+  "platform": "python-testing",
+  "Accept": "*/*",
+  "User-Agent": "python-testing/1.0",
+  "timestamp": "2025-08-01T10:40:17.124683",
+  "note": "Authentication headers for Thortful face swap API"
+}

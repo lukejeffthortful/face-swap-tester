@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug CSV Loading</title>
+</head>
+<body>
+    <div id="debug-output">Loading...</div>
+    <script>
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+            
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                const nextChar = line[i + 1];
+                
+                if (char === '"') {
+                    if (inQuotes && nextChar === '"') {
+                        current += '"';
+                        i++; // Skip next quote
+                    } else {
+                        inQuotes = !inQuotes;
+                    }
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current);
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            result.push(current);
+            return result;
+        }
+
+        async function debugCSV() {
+            try {
+                const response = await fetch('logs/main_test_results.csv');
+                const csvText = await response.text();
+                
+                const lines = csvText.split('\n').filter(line => line.trim());
+                console.log('Total lines:', lines.length);
+                
+                if (lines.length <= 1) {
+                    document.getElementById('debug-output').innerHTML = 'No data lines found';
+                    return;
+                }
+                
+                const headers = parseCSVLine(lines[0]).map(h => h.trim());
+                console.log('Headers:', headers);
+                
+                let output = `<h3>CSV Debug Info</h3>`;
+                output += `<p>Total lines: ${lines.length}</p>`;
+                output += `<p>Headers: ${headers.join(', ')}</p>`;
+                
+                // Process first few data rows
+                for (let i = 1; i < Math.min(6, lines.length); i++) {
+                    const values = parseCSVLine(lines[i]);
+                    if (values.length >= headers.length) {
+                        const result = {};
+                        headers.forEach((header, index) => {
+                            result[header] = values[index] ? values[index].trim().replace(/"/g, '') : '';
+                        });
+                        
+                        output += `<div style="border: 1px solid #ccc; margin: 10px; padding: 10px;">`;
+                        output += `<h4>Row ${i}:</h4>`;
+                        output += `<p><strong>source_image:</strong> "${result.source_image}"</p>`;
+                        output += `<p><strong>startsWith diverse_face_:</strong> ${result.source_image && result.source_image.startsWith('diverse_face_')}</p>`;
+                        output += `<p><strong>startsWith source_:</strong> ${result.source_image && result.source_image.startsWith('source_')}</p>`;
+                        output += `<p><strong>success:</strong> ${result.success}</p>`;
+                        output += `<p><strong>result_image:</strong> ${result.result_image}</p>`;
+                        
+                        // Test the filtering logic
+                        const shouldInclude = result.source_image && (result.source_image.startsWith('diverse_face_') || result.source_image.startsWith('source_'));
+                        output += `<p><strong>Should be included:</strong> ${shouldInclude}</p>`;
+                        output += `</div>`;
+                    }
+                }
+                
+                document.getElementById('debug-output').innerHTML = output;
+                
+            } catch (error) {
+                document.getElementById('debug-output').innerHTML = `Error: ${error.message}`;
+                console.error('Debug error:', error);
+            }
+        }
+        
+        debugCSV();
+    </script>
+</body>
+</html>
