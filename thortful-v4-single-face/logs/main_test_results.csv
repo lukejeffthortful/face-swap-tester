@@ -545,3 +545,5 @@ timestamp,source_image,target_image,card_id,result_image,api_version,test_type,s
 2025-08-01T12:40:50.128091,diverse_face_05.jpg,card_template_20,6820935e0e882b1e7d33c35a,error,v4-thortful,single_face,False,error,0.282,HTTP 403: ,Thortful API diverse face test - card_template_20
 2025-08-01T12:40:52.364571,diverse_face_05.jpg,card_template_21,66e450c1e69c5e3a7f18b418,error,v4-thortful,single_face,False,error,0.300,HTTP 403: ,Thortful API diverse face test - card_template_21
 2025-08-01T12:40:53.639672,diverse_face_05.jpg,card_template_22,66ea83ce2975504ebe65683b,error,v4-thortful,single_face,False,error,0.270,HTTP 403: ,Thortful API diverse face test - card_template_22
+2025-08-01T12:40:55.929347,diverse_face_05.jpg,card_template_23,67a22d9106eb6b5e764650bc,error,v4-thortful,single_face,False,error,0.264,HTTP 403: ,Thortful API diverse face test - card_template_23
+2025-08-01T12:40:57.209857,diverse_face_05.jpg,card_template_24,68097b1dbb56f6239add6126,error,v4-thortful,single_face,False,error,0.273,HTTP 403: ,Thortful API diverse face test - card_template_24
