@@ -151,3 +151,4 @@ timestamp,source_image,target_image,card_id,result_image,api_version,test_type,s
 </body>
 </html>
 ",Thortful API diverse face test - card_template_01
+2025-08-01T11:02:15.654865,diverse_face_01.jpg,card_template_02,6855c0b6ebba0773538e8a15,diverse_face_01_to_target_01_card_6855c0b6_thortful_v4.jpg,v4-thortful,single_face,True,50.267,50.267,,Thortful API diverse face test - card_template_02
