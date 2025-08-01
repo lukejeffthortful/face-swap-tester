@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Face Technical Verification</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            margin-top: 10px;
+            font-size: 1.1em;
+        }
+
+        .nav-links {
+            margin-top: 20px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 0 10px 10px 0;
+            transition: background 0.2s ease;
+        }
+
+        .nav-link:hover {
+            background: #2980b9;
+        }
+
+        .verification-status {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .status-passed {
+            border-left: 4px solid #27ae60;
+        }
+
+        .status-failed {
+            border-left: 4px solid #e74c3c;
+        }
+
+        .status-unknown {
+            border-left: 4px solid #f39c12;
+        }
+
+        .status-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .status-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .status-description {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .verification-results {
+            display: grid;
+            gap: 20px;
+        }
+
+        .verification-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .card-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .card-meta {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .verification-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .verification-image {
+            text-align: center;
+        }
+
+        .image-label {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .test-image {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid #ecf0f1;
+            transition: transform 0.2s ease;
+        }
+
+        .test-image:hover {
+            transform: scale(1.05);
+            border-color: #3498db;
+            cursor: pointer;
+        }
+
+        .verification-details {
+            display: grid;
+            gap: 15px;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .detail-value {
+            color: #666;
+            font-family: monospace;
+        }
+
+        .detail-value.success {
+            color: #27ae60;
+            font-weight: 600;
+        }
+
+        .detail-value.error {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #7f8c8d;
+            font-size: 1.2em;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .run-verification {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            margin-top: 20px;
+        }
+
+        .run-verification:hover {
+            background: #2980b9;
+        }
+
+        @media (max-width: 768px) {
+            .verification-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 Single Face Technical Verification</h1>
+        <div class="subtitle">API functionality and system health verification</div>
+        <div class="nav-links">
+            <a href="../batch-tests/review.html" class="nav-link">📊 Batch Tests</a>
+            <a href="../index.html" class="nav-link">← Single Face Testing</a>
+            <a href="../../index.html" class="nav-link">🏠 Home</a>
+        </div>
+    </div>
+
+    <div class="verification-status" id="verificationStatus">
+        <!-- Status will be populated by JavaScript -->
+    </div>
+
+    <div class="verification-results" id="verificationResults">
+        <div class="no-results">
+            Loading verification results...
+        </div>
+    </div>
+
+    <script>
+        let verificationData = [];
+        
+        async function loadVerificationData() {
+            try {
+                const response = await fetch('logs/verification_results.csv');
+                const csvText = await response.text();
+                
+                const lines = csvText.split('\n').filter(line => line.trim());
+                if (lines.length <= 1) return [];
+                
+                const headers = lines[0].split(',');
+                const results = [];
+                
+                for (let i = 1; i < lines.length; i++) {
+                    const values = lines[i].split(',');
+                    if (values.length >= headers.length) {
+                        const result = {};
+                        headers.forEach((header, index) => {
+                            result[header] = values[index] ? values[index].trim().replace(/"/g, '') : '';
+                        });
+                        results.push(result);
+                    }
+                }
+                
+                return results;
+            } catch (error) {
+                console.error('Error loading verification data:', error);
+                return [];
+            }
+        }
+        
+        function updateVerificationStatus() {
+            const statusContainer = document.getElementById('verificationStatus');
+            
+            if (verificationData.length === 0) {
+                statusContainer.innerHTML = `
+                    <div class="status-unknown">
+                        <div class="status-icon">❓</div>
+                        <div class="status-title">No Verification Data</div>
+                        <div class="status-description">
+                            Run technical verification to check API status
+                        </div>
+                        <button class="run-verification" onclick="alert('Run: python3 single-face-testing/technical-verification/scripts/verify_single_test.py')">
+                            Run Verification Test
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Get the most recent verification result
+            const latestResult = verificationData[verificationData.length - 1];
+            const isPassed = latestResult.status === 'PASSED';
+            
+            const statusClass = isPassed ? 'status-passed' : 'status-failed';
+            const statusIcon = isPassed ? '✅' : '❌';
+            const statusTitle = isPassed ? 'Verification PASSED' : 'Verification FAILED';
+            const statusDescription = isPassed 
+                ? 'API is working correctly and ready for batch testing'
+                : 'API issues detected - check authentication and system status';
+            
+            statusContainer.innerHTML = `
+                <div class="${statusClass}">
+                    <div class="status-icon">${statusIcon}</div>
+                    <div class="status-title">${statusTitle}</div>
+                    <div class="status-description">${statusDescription}</div>
+                    <button class="run-verification" onclick="alert('Run: python3 single-face-testing/technical-verification/scripts/verify_single_test.py')">
+                        Run New Verification
+                    </button>
+                </div>
+            `;
+        }
+        
+        function renderVerificationResults() {
+            const resultsContainer = document.getElementById('verificationResults');
+            
+            if (verificationData.length === 0) {
+                resultsContainer.innerHTML = `
+                    <div class="no-results">
+                        No verification results found.<br>
+                        Run the verification script to test API functionality.
+                    </div>
+                `;
+                return;
+            }
+            
+            // Sort by timestamp (newest first)
+            verificationData.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+            
+            resultsContainer.innerHTML = verificationData.map(result => {
+                const isSuccess = result.success === 'True';
+                const timestamp = new Date(result.timestamp).toLocaleString();
+                const sourceImg = `source-images/${result.source_image}`;
+                const resultImg = isSuccess ? `results/${result.result_image}` : null;
+                
+                return `
+                    <div class="verification-card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                Verification Test - ${result.status || (isSuccess ? 'PASSED' : 'FAILED')}
+                            </div>
+                            <div class="card-meta">${timestamp}</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="verification-grid">
+                                <div class="verification-image">
+                                    <div class="image-label">Source Image</div>
+                                    <img src="${sourceImg}" alt="Source Face" class="test-image" 
+                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div style="height: 200px; display: none; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 8px; color: #7f8c8d; font-weight: 500;">
+                                        ${result.source_image}
+                                    </div>
+                                </div>
+                                
+                                ${resultImg ? `
+                                <div class="verification-image">
+                                    <div class="image-label">Verification Result</div>
+                                    <img src="${resultImg}" alt="Verification Result" class="test-image" 
+                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div style="height: 200px; display: none; align-items: center; justify-content: center; background: #fff3cd; border-radius: 8px; color: #856404; font-weight: 500;">
+                                        Result image not found
+                                    </div>
+                                </div>
+                                ` : `
+                                <div class="verification-image">
+                                    <div class="image-label">Verification Result</div>
+                                    <div style="height: 200px; display: flex; align-items: center; justify-content: center; background: #f8d7da; border-radius: 8px; color: #721c24; font-weight: 500; text-align: center; padding: 20px;">
+                                        Verification Failed<br>
+                                        <span style="font-size: 0.8em; margin-top: 10px; display: block;">${result.error_message || 'Unknown error'}</span>
+                                    </div>
+                                </div>
+                                `}
+                            </div>
+                            
+                            <div class="verification-details" style="margin-top: 20px;">
+                                <div class="detail-item">
+                                    <div class="detail-label">Status</div>
+                                    <div class="detail-value ${isSuccess ? 'success' : 'error'}">
+                                        ${result.status || (isSuccess ? 'PASSED' : 'FAILED')}
+                                    </div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Processing Time</div>
+                                    <div class="detail-value">${result.request_time_seconds}s</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">API Version</div>
+                                    <div class="detail-value">${result.api_version}</div>
+                                </div>
+                                <div class="detail-item">
+                                    <div class="detail-label">Card ID</div>
+                                    <div class="detail-value">${result.card_id}</div>
+                                </div>
+                                ${!isSuccess ? `
+                                <div class="detail-item">
+                                    <div class="detail-label">Error</div>
+                                    <div class="detail-value error">${result.error_message || 'Unknown error'}</div>
+                                </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        async function refreshData() {
+            verificationData = await loadVerificationData();
+            updateVerificationStatus();
+            renderVerificationResults();
+        }
+        
+        // Initial load
+        refreshData();
+        
+        // Auto-refresh every 30 seconds
+        setInterval(refreshData, 30000);
+    </script>
+</body>
+</html>

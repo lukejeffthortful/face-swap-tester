@@ -1,0 +1,717 @@
+timestamp,source_image,target_image,card_id,result_image,api_version,test_type,success,generation_time_seconds,request_time_seconds,error_message,notes
+2025-07-25T10:19:51.488309,diverse_face_02.jpg,target_01.png,67816ae75990fc276575cd07,diverse_face_02_to_target_01_card_67816ae7_thortful_v4.jpg,v4-thortful,single_face,True,unknown,45.825,,Thortful API diverse face test - Card 67816ae7
+2025-07-25T10:20:35.972152,diverse_face_02.jpg,target_01.png,6855c0b6ebba0773538e8a15,diverse_face_02_to_target_01_card_6855c0b6_thortful_v4.jpg,v4-thortful,single_face,True,unknown,43.358,,Thortful API diverse face test - Card 6855c0b6
+2025-07-25T10:34:24.676629,diverse_face_02.jpg,target_01.png,67816ae75990fc276575cd07,error,v4-thortful,single_face,False,error,60.144,"HTTP 504: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class=""no-js ie6 oldie"" lang=""en-US""> <![endif]-->
+<!--[if IE 7]>    <html class=""no-js ie7 oldie"" lang=""en-US""> <![endif]-->
+<!--[if IE 8]>    <html class=""no-js ie8 oldie"" lang=""en-US""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class=""no-js"" lang=""en-US""> <!--<![endif]-->
+<head>
+
+
+<title>api.thortful.com | 504: Gateway time-out</title>
+<meta charset=""UTF-8"" />
+<meta http-equiv=""Content-Type"" content=""text/html; charset=UTF-8"" />
+<meta http-equiv=""X-UA-Compatible"" content=""IE=Edge"" />
+<meta name=""robots"" content=""noindex, nofollow"" />
+<meta name=""viewport"" content=""width=device-width,initial-scale=1"" />
+<link rel=""stylesheet"" id=""cf_styles-css"" href=""/cdn-cgi/styles/main.css"" />
+
+
+</head>
+<body>
+<div id=""cf-wrapper"">
+    <div id=""cf-error-details"" class=""p-0"">
+        <header class=""mx-auto pt-10 lg:pt-6 lg:px-8 w-240 lg:w-full mb-8"">
+            <h1 class=""inline-block sm:block sm:mb-2 font-light text-60 lg:text-4xl text-black-dark leading-tight mr-2"">
+              <span class=""inline-block"">Gateway time-out</span>
+              <span class=""code-label"">Error code 504</span>
+            </h1>
+            <div>
+               Visit <a href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" target=""_blank"" rel=""noopener noreferrer"">cloudflare.com</a> for more information.
+            </div>
+            <div class=""mt-3"">2025-07-25 09:34:24 UTC</div>
+        </header>
+        <div class=""my-8 bg-gradient-gray"">
+            <div class=""w-240 lg:w-full mx-auto"">
+                <div class=""clearfix md:px-8"">
+                  
+<div id=""cf-browser-status"" class="" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center"">
+  <div class=""relative mb-10 md:m-0"">
+    
+    <span class=""cf-icon-browser block md:hidden h-20 bg-center bg-no-repeat""></span>
+    <span class=""cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4""></span>
+    
+  </div>
+  <span class=""md:block w-full truncate"">You</span>
+  <h3 class=""md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3"">
+    
+    Browser
+    
+  </h3>
+  <span class=""leading-1.3 text-2xl text-green-success"">Working</span>
+</div>
+
+<div id=""cf-cloudflare-status"" class="" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center"">
+  <div class=""relative mb-10 md:m-0"">
+    <a href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" target=""_blank"" rel=""noopener noreferrer"">
+    <span class=""cf-icon-cloud block md:hidden h-20 bg-center bg-no-repeat""></span>
+    <span class=""cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4""></span>
+    </a>
+  </div>
+  <span class=""md:block w-full truncate"">Manchester</span>
+  <h3 class=""md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3"">
+    <a href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" target=""_blank"" rel=""noopener noreferrer"">
+    Cloudflare
+    </a>
+  </h3>
+  <span class=""leading-1.3 text-2xl text-green-success"">Working</span>
+</div>
+
+<div id=""cf-host-status"" class=""cf-error-source relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center"">
+  <div class=""relative mb-10 md:m-0"">
+    
+    <span class=""cf-icon-server block md:hidden h-20 bg-center bg-no-repeat""></span>
+    <span class=""cf-icon-error w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4""></span>
+    
+  </div>
+  <span class=""md:block w-full truncate"">api.thortful.com</span>
+  <h3 class=""md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3"">
+    
+    Host
+    
+  </h3>
+  <span class=""leading-1.3 text-2xl text-red-error"">Error</span>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class=""w-240 lg:w-full mx-auto mb-8 lg:px-8"">
+            <div class=""clearfix"">
+                <div class=""w-1/2 md:w-full float-left pr-6 md:pb-10 md:pr-0 leading-relaxed"">
+                    <h2 class=""text-3xl font-normal leading-1.3 mb-4"">What happened?</h2>
+                    <p>The web server reported a gateway time-out error.</p>
+                </div>
+                <div class=""w-1/2 md:w-full float-left leading-relaxed"">
+                    <h2 class=""text-3xl font-normal leading-1.3 mb-4"">What can I do?</h2>
+                    <p class=""mb-6"">Please try again in a few minutes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class=""cf-error-footer cf-wrapper w-240 lg:w-full py-10 sm:py-4 sm:px-8 mx-auto text-center sm:text-left border-solid border-0 border-t border-gray-300"">
+  <p class=""text-13"">
+    <span class=""cf-footer-item sm:block sm:mb-1"">Cloudflare Ray ID: <strong class=""font-semibold"">964aa7d4b90feb19</strong></span>
+    <span class=""cf-footer-separator sm:hidden"">&bull;</span>
+    <span id=""cf-footer-item-ip"" class=""cf-footer-item hidden sm:block sm:mb-1"">
+      Your IP:
+      <button type=""button"" id=""cf-footer-ip-reveal"" class=""cf-footer-ip-reveal-btn"">Click to reveal</button>
+      <span class=""hidden"" id=""cf-footer-ip"">151.225.190.219</span>
+      <span class=""cf-footer-separator sm:hidden"">&bull;</span>
+    </span>
+    <span class=""cf-footer-item sm:block sm:mb-1""><span>Performance &amp; security by</span> <a rel=""noopener noreferrer"" href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" id=""brand_link"" target=""_blank"">Cloudflare</a></span>
+    
+  </p>
+  <script>(function(){function d(){var b=a.getElementById(""cf-footer-item-ip""),c=a.getElementById(""cf-footer-ip-reveal"");b&&""classList""in b&&(b.classList.remove(""hidden""),c.addEventListener(""click"",function(){c.classList.add(""hidden"");a.getElementById(""cf-footer-ip"").classList.remove(""hidden"")}))}var a=document;document.addEventListener&&a.addEventListener(""DOMContentLoaded"",d)})();</script>
+</div><!-- /.error-footer -->
+
+
+    </div>
+</div>
+</body>
+</html>
+",Thortful API diverse face test - Card 67816ae7
+2025-07-25T10:35:25.844082,diverse_face_02.jpg,target_01.png,6855c0b6ebba0773538e8a15,error,v4-thortful,single_face,False,error,60.159,"HTTP 504: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class=""no-js ie6 oldie"" lang=""en-US""> <![endif]-->
+<!--[if IE 7]>    <html class=""no-js ie7 oldie"" lang=""en-US""> <![endif]-->
+<!--[if IE 8]>    <html class=""no-js ie8 oldie"" lang=""en-US""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class=""no-js"" lang=""en-US""> <!--<![endif]-->
+<head>
+
+
+<title>api.thortful.com | 504: Gateway time-out</title>
+<meta charset=""UTF-8"" />
+<meta http-equiv=""Content-Type"" content=""text/html; charset=UTF-8"" />
+<meta http-equiv=""X-UA-Compatible"" content=""IE=Edge"" />
+<meta name=""robots"" content=""noindex, nofollow"" />
+<meta name=""viewport"" content=""width=device-width,initial-scale=1"" />
+<link rel=""stylesheet"" id=""cf_styles-css"" href=""/cdn-cgi/styles/main.css"" />
+
+
+</head>
+<body>
+<div id=""cf-wrapper"">
+    <div id=""cf-error-details"" class=""p-0"">
+        <header class=""mx-auto pt-10 lg:pt-6 lg:px-8 w-240 lg:w-full mb-8"">
+            <h1 class=""inline-block sm:block sm:mb-2 font-light text-60 lg:text-4xl text-black-dark leading-tight mr-2"">
+              <span class=""inline-block"">Gateway time-out</span>
+              <span class=""code-label"">Error code 504</span>
+            </h1>
+            <div>
+               Visit <a href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" target=""_blank"" rel=""noopener noreferrer"">cloudflare.com</a> for more information.
+            </div>
+            <div class=""mt-3"">2025-07-25 09:35:25 UTC</div>
+        </header>
+        <div class=""my-8 bg-gradient-gray"">
+            <div class=""w-240 lg:w-full mx-auto"">
+                <div class=""clearfix md:px-8"">
+                  
+<div id=""cf-browser-status"" class="" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center"">
+  <div class=""relative mb-10 md:m-0"">
+    
+    <span class=""cf-icon-browser block md:hidden h-20 bg-center bg-no-repeat""></span>
+    <span class=""cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4""></span>
+    
+  </div>
+  <span class=""md:block w-full truncate"">You</span>
+  <h3 class=""md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3"">
+    
+    Browser
+    
+  </h3>
+  <span class=""leading-1.3 text-2xl text-green-success"">Working</span>
+</div>
+
+<div id=""cf-cloudflare-status"" class="" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center"">
+  <div class=""relative mb-10 md:m-0"">
+    <a href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" target=""_blank"" rel=""noopener noreferrer"">
+    <span class=""cf-icon-cloud block md:hidden h-20 bg-center bg-no-repeat""></span>
+    <span class=""cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4""></span>
+    </a>
+  </div>
+  <span class=""md:block w-full truncate"">Manchester</span>
+  <h3 class=""md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3"">
+    <a href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" target=""_blank"" rel=""noopener noreferrer"">
+    Cloudflare
+    </a>
+  </h3>
+  <span class=""leading-1.3 text-2xl text-green-success"">Working</span>
+</div>
+
+<div id=""cf-host-status"" class=""cf-error-source relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center"">
+  <div class=""relative mb-10 md:m-0"">
+    
+    <span class=""cf-icon-server block md:hidden h-20 bg-center bg-no-repeat""></span>
+    <span class=""cf-icon-error w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4""></span>
+    
+  </div>
+  <span class=""md:block w-full truncate"">api.thortful.com</span>
+  <h3 class=""md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3"">
+    
+    Host
+    
+  </h3>
+  <span class=""leading-1.3 text-2xl text-red-error"">Error</span>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class=""w-240 lg:w-full mx-auto mb-8 lg:px-8"">
+            <div class=""clearfix"">
+                <div class=""w-1/2 md:w-full float-left pr-6 md:pb-10 md:pr-0 leading-relaxed"">
+                    <h2 class=""text-3xl font-normal leading-1.3 mb-4"">What happened?</h2>
+                    <p>The web server reported a gateway time-out error.</p>
+                </div>
+                <div class=""w-1/2 md:w-full float-left leading-relaxed"">
+                    <h2 class=""text-3xl font-normal leading-1.3 mb-4"">What can I do?</h2>
+                    <p class=""mb-6"">Please try again in a few minutes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class=""cf-error-footer cf-wrapper w-240 lg:w-full py-10 sm:py-4 sm:px-8 mx-auto text-center sm:text-left border-solid border-0 border-t border-gray-300"">
+  <p class=""text-13"">
+    <span class=""cf-footer-item sm:block sm:mb-1"">Cloudflare Ray ID: <strong class=""font-semibold"">964aa9530c2cccb3</strong></span>
+    <span class=""cf-footer-separator sm:hidden"">&bull;</span>
+    <span id=""cf-footer-item-ip"" class=""cf-footer-item hidden sm:block sm:mb-1"">
+      Your IP:
+      <button type=""button"" id=""cf-footer-ip-reveal"" class=""cf-footer-ip-reveal-btn"">Click to reveal</button>
+      <span class=""hidden"" id=""cf-footer-ip"">151.225.190.219</span>
+      <span class=""cf-footer-separator sm:hidden"">&bull;</span>
+    </span>
+    <span class=""cf-footer-item sm:block sm:mb-1""><span>Performance &amp; security by</span> <a rel=""noopener noreferrer"" href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" id=""brand_link"" target=""_blank"">Cloudflare</a></span>
+    
+  </p>
+  <script>(function(){function d(){var b=a.getElementById(""cf-footer-item-ip""),c=a.getElementById(""cf-footer-ip-reveal"");b&&""classList""in b&&(b.classList.remove(""hidden""),c.addEventListener(""click"",function(){c.classList.add(""hidden"");a.getElementById(""cf-footer-ip"").classList.remove(""hidden"")}))}var a=document;document.addEventListener&&a.addEventListener(""DOMContentLoaded"",d)})();</script>
+</div><!-- /.error-footer -->
+
+
+    </div>
+</div>
+</body>
+</html>
+",Thortful API diverse face test - Card 6855c0b6
+2025-07-25T10:36:27.235744,diverse_face_02.jpg,target_01.png,66facc0a21fd6d6f34901ae6,error,v4-thortful,single_face,False,error,60.381,"HTTP 504: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class=""no-js ie6 oldie"" lang=""en-US""> <![endif]-->
+<!--[if IE 7]>    <html class=""no-js ie7 oldie"" lang=""en-US""> <![endif]-->
+<!--[if IE 8]>    <html class=""no-js ie8 oldie"" lang=""en-US""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class=""no-js"" lang=""en-US""> <!--<![endif]-->
+<head>
+
+
+<title>api.thortful.com | 504: Gateway time-out</title>
+<meta charset=""UTF-8"" />
+<meta http-equiv=""Content-Type"" content=""text/html; charset=UTF-8"" />
+<meta http-equiv=""X-UA-Compatible"" content=""IE=Edge"" />
+<meta name=""robots"" content=""noindex, nofollow"" />
+<meta name=""viewport"" content=""width=device-width,initial-scale=1"" />
+<link rel=""stylesheet"" id=""cf_styles-css"" href=""/cdn-cgi/styles/main.css"" />
+
+
+</head>
+<body>
+<div id=""cf-wrapper"">
+    <div id=""cf-error-details"" class=""p-0"">
+        <header class=""mx-auto pt-10 lg:pt-6 lg:px-8 w-240 lg:w-full mb-8"">
+            <h1 class=""inline-block sm:block sm:mb-2 font-light text-60 lg:text-4xl text-black-dark leading-tight mr-2"">
+              <span class=""inline-block"">Gateway time-out</span>
+              <span class=""code-label"">Error code 504</span>
+            </h1>
+            <div>
+               Visit <a href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" target=""_blank"" rel=""noopener noreferrer"">cloudflare.com</a> for more information.
+            </div>
+            <div class=""mt-3"">2025-07-25 09:36:27 UTC</div>
+        </header>
+        <div class=""my-8 bg-gradient-gray"">
+            <div class=""w-240 lg:w-full mx-auto"">
+                <div class=""clearfix md:px-8"">
+                  
+<div id=""cf-browser-status"" class="" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center"">
+  <div class=""relative mb-10 md:m-0"">
+    
+    <span class=""cf-icon-browser block md:hidden h-20 bg-center bg-no-repeat""></span>
+    <span class=""cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4""></span>
+    
+  </div>
+  <span class=""md:block w-full truncate"">You</span>
+  <h3 class=""md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3"">
+    
+    Browser
+    
+  </h3>
+  <span class=""leading-1.3 text-2xl text-green-success"">Working</span>
+</div>
+
+<div id=""cf-cloudflare-status"" class="" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center"">
+  <div class=""relative mb-10 md:m-0"">
+    <a href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" target=""_blank"" rel=""noopener noreferrer"">
+    <span class=""cf-icon-cloud block md:hidden h-20 bg-center bg-no-repeat""></span>
+    <span class=""cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4""></span>
+    </a>
+  </div>
+  <span class=""md:block w-full truncate"">London</span>
+  <h3 class=""md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3"">
+    <a href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" target=""_blank"" rel=""noopener noreferrer"">
+    Cloudflare
+    </a>
+  </h3>
+  <span class=""leading-1.3 text-2xl text-green-success"">Working</span>
+</div>
+
+<div id=""cf-host-status"" class=""cf-error-source relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center"">
+  <div class=""relative mb-10 md:m-0"">
+    
+    <span class=""cf-icon-server block md:hidden h-20 bg-center bg-no-repeat""></span>
+    <span class=""cf-icon-error w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4""></span>
+    
+  </div>
+  <span class=""md:block w-full truncate"">api.thortful.com</span>
+  <h3 class=""md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3"">
+    
+    Host
+    
+  </h3>
+  <span class=""leading-1.3 text-2xl text-red-error"">Error</span>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class=""w-240 lg:w-full mx-auto mb-8 lg:px-8"">
+            <div class=""clearfix"">
+                <div class=""w-1/2 md:w-full float-left pr-6 md:pb-10 md:pr-0 leading-relaxed"">
+                    <h2 class=""text-3xl font-normal leading-1.3 mb-4"">What happened?</h2>
+                    <p>The web server reported a gateway time-out error.</p>
+                </div>
+                <div class=""w-1/2 md:w-full float-left leading-relaxed"">
+                    <h2 class=""text-3xl font-normal leading-1.3 mb-4"">What can I do?</h2>
+                    <p class=""mb-6"">Please try again in a few minutes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class=""cf-error-footer cf-wrapper w-240 lg:w-full py-10 sm:py-4 sm:px-8 mx-auto text-center sm:text-left border-solid border-0 border-t border-gray-300"">
+  <p class=""text-13"">
+    <span class=""cf-footer-item sm:block sm:mb-1"">Cloudflare Ray ID: <strong class=""font-semibold"">964aaad11bd862c0</strong></span>
+    <span class=""cf-footer-separator sm:hidden"">&bull;</span>
+    <span id=""cf-footer-item-ip"" class=""cf-footer-item hidden sm:block sm:mb-1"">
+      Your IP:
+      <button type=""button"" id=""cf-footer-ip-reveal"" class=""cf-footer-ip-reveal-btn"">Click to reveal</button>
+      <span class=""hidden"" id=""cf-footer-ip"">151.225.190.219</span>
+      <span class=""cf-footer-separator sm:hidden"">&bull;</span>
+    </span>
+    <span class=""cf-footer-item sm:block sm:mb-1""><span>Performance &amp; security by</span> <a rel=""noopener noreferrer"" href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" id=""brand_link"" target=""_blank"">Cloudflare</a></span>
+    
+  </p>
+  <script>(function(){function d(){var b=a.getElementById(""cf-footer-item-ip""),c=a.getElementById(""cf-footer-ip-reveal"");b&&""classList""in b&&(b.classList.remove(""hidden""),c.addEventListener(""click"",function(){c.classList.add(""hidden"");a.getElementById(""cf-footer-ip"").classList.remove(""hidden"")}))}var a=document;document.addEventListener&&a.addEventListener(""DOMContentLoaded"",d)})();</script>
+</div><!-- /.error-footer -->
+
+
+    </div>
+</div>
+</body>
+</html>
+",Thortful API diverse face test - Card 66facc0a
+2025-07-25T10:37:18.086551,diverse_face_02.jpg,target_01.png,66e01c85ded8e0212043629d,diverse_face_02_to_target_01_card_66e01c85_thortful_v4.jpg,v4-thortful,single_face,True,unknown,49.832,,Thortful API diverse face test - Card 66e01c85
+2025-07-25T10:38:19.243914,diverse_face_02.jpg,target_01.png,67d219a67d3f9803484845be,error,v4-thortful,single_face,False,error,60.150,"HTTP 504: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class=""no-js ie6 oldie"" lang=""en-US""> <![endif]-->
+<!--[if IE 7]>    <html class=""no-js ie7 oldie"" lang=""en-US""> <![endif]-->
+<!--[if IE 8]>    <html class=""no-js ie8 oldie"" lang=""en-US""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class=""no-js"" lang=""en-US""> <!--<![endif]-->
+<head>
+
+
+<title>api.thortful.com | 504: Gateway time-out</title>
+<meta charset=""UTF-8"" />
+<meta http-equiv=""Content-Type"" content=""text/html; charset=UTF-8"" />
+<meta http-equiv=""X-UA-Compatible"" content=""IE=Edge"" />
+<meta name=""robots"" content=""noindex, nofollow"" />
+<meta name=""viewport"" content=""width=device-width,initial-scale=1"" />
+<link rel=""stylesheet"" id=""cf_styles-css"" href=""/cdn-cgi/styles/main.css"" />
+
+
+</head>
+<body>
+<div id=""cf-wrapper"">
+    <div id=""cf-error-details"" class=""p-0"">
+        <header class=""mx-auto pt-10 lg:pt-6 lg:px-8 w-240 lg:w-full mb-8"">
+            <h1 class=""inline-block sm:block sm:mb-2 font-light text-60 lg:text-4xl text-black-dark leading-tight mr-2"">
+              <span class=""inline-block"">Gateway time-out</span>
+              <span class=""code-label"">Error code 504</span>
+            </h1>
+            <div>
+               Visit <a href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" target=""_blank"" rel=""noopener noreferrer"">cloudflare.com</a> for more information.
+            </div>
+            <div class=""mt-3"">2025-07-25 09:38:19 UTC</div>
+        </header>
+        <div class=""my-8 bg-gradient-gray"">
+            <div class=""w-240 lg:w-full mx-auto"">
+                <div class=""clearfix md:px-8"">
+                  
+<div id=""cf-browser-status"" class="" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center"">
+  <div class=""relative mb-10 md:m-0"">
+    
+    <span class=""cf-icon-browser block md:hidden h-20 bg-center bg-no-repeat""></span>
+    <span class=""cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4""></span>
+    
+  </div>
+  <span class=""md:block w-full truncate"">You</span>
+  <h3 class=""md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3"">
+    
+    Browser
+    
+  </h3>
+  <span class=""leading-1.3 text-2xl text-green-success"">Working</span>
+</div>
+
+<div id=""cf-cloudflare-status"" class="" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center"">
+  <div class=""relative mb-10 md:m-0"">
+    <a href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" target=""_blank"" rel=""noopener noreferrer"">
+    <span class=""cf-icon-cloud block md:hidden h-20 bg-center bg-no-repeat""></span>
+    <span class=""cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4""></span>
+    </a>
+  </div>
+  <span class=""md:block w-full truncate"">London</span>
+  <h3 class=""md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3"">
+    <a href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" target=""_blank"" rel=""noopener noreferrer"">
+    Cloudflare
+    </a>
+  </h3>
+  <span class=""leading-1.3 text-2xl text-green-success"">Working</span>
+</div>
+
+<div id=""cf-host-status"" class=""cf-error-source relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center"">
+  <div class=""relative mb-10 md:m-0"">
+    
+    <span class=""cf-icon-server block md:hidden h-20 bg-center bg-no-repeat""></span>
+    <span class=""cf-icon-error w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4""></span>
+    
+  </div>
+  <span class=""md:block w-full truncate"">api.thortful.com</span>
+  <h3 class=""md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3"">
+    
+    Host
+    
+  </h3>
+  <span class=""leading-1.3 text-2xl text-red-error"">Error</span>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class=""w-240 lg:w-full mx-auto mb-8 lg:px-8"">
+            <div class=""clearfix"">
+                <div class=""w-1/2 md:w-full float-left pr-6 md:pb-10 md:pr-0 leading-relaxed"">
+                    <h2 class=""text-3xl font-normal leading-1.3 mb-4"">What happened?</h2>
+                    <p>The web server reported a gateway time-out error.</p>
+                </div>
+                <div class=""w-1/2 md:w-full float-left leading-relaxed"">
+                    <h2 class=""text-3xl font-normal leading-1.3 mb-4"">What can I do?</h2>
+                    <p class=""mb-6"">Please try again in a few minutes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class=""cf-error-footer cf-wrapper w-240 lg:w-full py-10 sm:py-4 sm:px-8 mx-auto text-center sm:text-left border-solid border-0 border-t border-gray-300"">
+  <p class=""text-13"">
+    <span class=""cf-footer-item sm:block sm:mb-1"">Cloudflare Ray ID: <strong class=""font-semibold"">964aad8ea81dc0d8</strong></span>
+    <span class=""cf-footer-separator sm:hidden"">&bull;</span>
+    <span id=""cf-footer-item-ip"" class=""cf-footer-item hidden sm:block sm:mb-1"">
+      Your IP:
+      <button type=""button"" id=""cf-footer-ip-reveal"" class=""cf-footer-ip-reveal-btn"">Click to reveal</button>
+      <span class=""hidden"" id=""cf-footer-ip"">151.225.190.219</span>
+      <span class=""cf-footer-separator sm:hidden"">&bull;</span>
+    </span>
+    <span class=""cf-footer-item sm:block sm:mb-1""><span>Performance &amp; security by</span> <a rel=""noopener noreferrer"" href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" id=""brand_link"" target=""_blank"">Cloudflare</a></span>
+    
+  </p>
+  <script>(function(){function d(){var b=a.getElementById(""cf-footer-item-ip""),c=a.getElementById(""cf-footer-ip-reveal"");b&&""classList""in b&&(b.classList.remove(""hidden""),c.addEventListener(""click"",function(){c.classList.add(""hidden"");a.getElementById(""cf-footer-ip"").classList.remove(""hidden"")}))}var a=document;document.addEventListener&&a.addEventListener(""DOMContentLoaded"",d)})();</script>
+</div><!-- /.error-footer -->
+
+
+    </div>
+</div>
+</body>
+</html>
+",Thortful API diverse face test - Card 67d219a6
+2025-07-25T10:39:21.573936,diverse_face_02.jpg,target_01.png,68497934ad723e68b9792266,error,v4-thortful,single_face,False,error,60.177,"HTTP 504: <!DOCTYPE html>
+<!--[if lt IE 7]> <html class=""no-js ie6 oldie"" lang=""en-US""> <![endif]-->
+<!--[if IE 7]>    <html class=""no-js ie7 oldie"" lang=""en-US""> <![endif]-->
+<!--[if IE 8]>    <html class=""no-js ie8 oldie"" lang=""en-US""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class=""no-js"" lang=""en-US""> <!--<![endif]-->
+<head>
+
+
+<title>api.thortful.com | 504: Gateway time-out</title>
+<meta charset=""UTF-8"" />
+<meta http-equiv=""Content-Type"" content=""text/html; charset=UTF-8"" />
+<meta http-equiv=""X-UA-Compatible"" content=""IE=Edge"" />
+<meta name=""robots"" content=""noindex, nofollow"" />
+<meta name=""viewport"" content=""width=device-width,initial-scale=1"" />
+<link rel=""stylesheet"" id=""cf_styles-css"" href=""/cdn-cgi/styles/main.css"" />
+
+
+</head>
+<body>
+<div id=""cf-wrapper"">
+    <div id=""cf-error-details"" class=""p-0"">
+        <header class=""mx-auto pt-10 lg:pt-6 lg:px-8 w-240 lg:w-full mb-8"">
+            <h1 class=""inline-block sm:block sm:mb-2 font-light text-60 lg:text-4xl text-black-dark leading-tight mr-2"">
+              <span class=""inline-block"">Gateway time-out</span>
+              <span class=""code-label"">Error code 504</span>
+            </h1>
+            <div>
+               Visit <a href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" target=""_blank"" rel=""noopener noreferrer"">cloudflare.com</a> for more information.
+            </div>
+            <div class=""mt-3"">2025-07-25 09:39:21 UTC</div>
+        </header>
+        <div class=""my-8 bg-gradient-gray"">
+            <div class=""w-240 lg:w-full mx-auto"">
+                <div class=""clearfix md:px-8"">
+                  
+<div id=""cf-browser-status"" class="" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center"">
+  <div class=""relative mb-10 md:m-0"">
+    
+    <span class=""cf-icon-browser block md:hidden h-20 bg-center bg-no-repeat""></span>
+    <span class=""cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4""></span>
+    
+  </div>
+  <span class=""md:block w-full truncate"">You</span>
+  <h3 class=""md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3"">
+    
+    Browser
+    
+  </h3>
+  <span class=""leading-1.3 text-2xl text-green-success"">Working</span>
+</div>
+
+<div id=""cf-cloudflare-status"" class="" relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center"">
+  <div class=""relative mb-10 md:m-0"">
+    <a href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" target=""_blank"" rel=""noopener noreferrer"">
+    <span class=""cf-icon-cloud block md:hidden h-20 bg-center bg-no-repeat""></span>
+    <span class=""cf-icon-ok w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4""></span>
+    </a>
+  </div>
+  <span class=""md:block w-full truncate"">London</span>
+  <h3 class=""md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3"">
+    <a href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" target=""_blank"" rel=""noopener noreferrer"">
+    Cloudflare
+    </a>
+  </h3>
+  <span class=""leading-1.3 text-2xl text-green-success"">Working</span>
+</div>
+
+<div id=""cf-host-status"" class=""cf-error-source relative w-1/3 md:w-full py-15 md:p-0 md:py-8 md:text-left md:border-solid md:border-0 md:border-b md:border-gray-400 overflow-hidden float-left md:float-none text-center"">
+  <div class=""relative mb-10 md:m-0"">
+    
+    <span class=""cf-icon-server block md:hidden h-20 bg-center bg-no-repeat""></span>
+    <span class=""cf-icon-error w-12 h-12 absolute left-1/2 md:left-auto md:right-0 md:top-0 -ml-6 -bottom-4""></span>
+    
+  </div>
+  <span class=""md:block w-full truncate"">api.thortful.com</span>
+  <h3 class=""md:inline-block mt-3 md:mt-0 text-2xl text-gray-600 font-light leading-1.3"">
+    
+    Host
+    
+  </h3>
+  <span class=""leading-1.3 text-2xl text-red-error"">Error</span>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class=""w-240 lg:w-full mx-auto mb-8 lg:px-8"">
+            <div class=""clearfix"">
+                <div class=""w-1/2 md:w-full float-left pr-6 md:pb-10 md:pr-0 leading-relaxed"">
+                    <h2 class=""text-3xl font-normal leading-1.3 mb-4"">What happened?</h2>
+                    <p>The web server reported a gateway time-out error.</p>
+                </div>
+                <div class=""w-1/2 md:w-full float-left leading-relaxed"">
+                    <h2 class=""text-3xl font-normal leading-1.3 mb-4"">What can I do?</h2>
+                    <p class=""mb-6"">Please try again in a few minutes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class=""cf-error-footer cf-wrapper w-240 lg:w-full py-10 sm:py-4 sm:px-8 mx-auto text-center sm:text-left border-solid border-0 border-t border-gray-300"">
+  <p class=""text-13"">
+    <span class=""cf-footer-item sm:block sm:mb-1"">Cloudflare Ray ID: <strong class=""font-semibold"">964aaf141f61cd6b</strong></span>
+    <span class=""cf-footer-separator sm:hidden"">&bull;</span>
+    <span id=""cf-footer-item-ip"" class=""cf-footer-item hidden sm:block sm:mb-1"">
+      Your IP:
+      <button type=""button"" id=""cf-footer-ip-reveal"" class=""cf-footer-ip-reveal-btn"">Click to reveal</button>
+      <span class=""hidden"" id=""cf-footer-ip"">151.225.190.219</span>
+      <span class=""cf-footer-separator sm:hidden"">&bull;</span>
+    </span>
+    <span class=""cf-footer-item sm:block sm:mb-1""><span>Performance &amp; security by</span> <a rel=""noopener noreferrer"" href=""https://www.cloudflare.com/5xx-error-landing?utm_source=errorcode_504&utm_campaign=api.thortful.com"" id=""brand_link"" target=""_blank"">Cloudflare</a></span>
+    
+  </p>
+  <script>(function(){function d(){var b=a.getElementById(""cf-footer-item-ip""),c=a.getElementById(""cf-footer-ip-reveal"");b&&""classList""in b&&(b.classList.remove(""hidden""),c.addEventListener(""click"",function(){c.classList.add(""hidden"");a.getElementById(""cf-footer-ip"").classList.remove(""hidden"")}))}var a=document;document.addEventListener&&a.addEventListener(""DOMContentLoaded"",d)})();</script>
+</div><!-- /.error-footer -->
+
+
+    </div>
+</div>
+</body>
+</html>
+",Thortful API diverse face test - Card 68497934
+2025-07-25T10:40:09.709129,diverse_face_02.jpg,target_01.png,680b65d36010d4505cbac642,diverse_face_02_to_target_01_card_680b65d3_thortful_v4.jpg,v4-thortful,single_face,True,unknown,47.121,,Thortful API diverse face test - Card 680b65d3
+2025-07-25T10:40:55.409249,diverse_face_02.jpg,target_01.png,6854af2294654d25b467e33b,diverse_face_02_to_target_01_card_6854af22_thortful_v4.jpg,v4-thortful,single_face,True,unknown,44.693,,Thortful API diverse face test - Card 6854af22
+2025-07-25T10:41:41.408701,diverse_face_02.jpg,target_01.png,68097dd5b46c0a5b4e3543f8,diverse_face_02_to_target_01_card_68097dd5_thortful_v4.jpg,v4-thortful,single_face,True,unknown,44.963,,Thortful API diverse face test - Card 68097dd5
+2025-07-25T10:45:06.940451,diverse_face_01.jpg,target_01.png,67816ae75990fc276575cd07,diverse_face_01_to_target_01_card_67816ae7_thortful_v4.jpg,v4-thortful,single_face,True,unknown,47.027,,Thortful API diverse face test - Card 67816ae7
+2025-07-25T10:48:42.472586,diverse_face_02.jpg,target_01.png,67816ae75990fc276575cd07,gateway_timeout,v4-thortful,single_face,False,gateway_timeout,60.224,Gateway Timeout (504) - V4 processing exceeded gateway limit (~60s),Thortful API diverse face test - Card 67816ae7
+2025-07-25T11:01:02.875565,diverse_face_01.jpg,target_01.png,67816ae75990fc276575cd07,diverse_face_01_to_target_01_card_67816ae7_thortful_v4.jpg,v4-thortful,single_face,True,unknown,57.764,,Thortful API diverse face test - Card 67816ae7
+2025-07-25T11:08:58.543965,diverse_face_02.jpg,target_01.png,67816ae75990fc276575cd07,gateway_timeout,v4-thortful,single_face,False,gateway_timeout,60.157,Gateway Timeout (504) - V4 processing exceeded gateway limit (~60s),Thortful API diverse face test - Card 67816ae7
+2025-07-25T11:09:54.165653,diverse_face_02.jpg,target_01.png,6855c0b6ebba0773538e8a15,diverse_face_02_to_target_01_card_6855c0b6_thortful_v4.jpg,v4-thortful,single_face,True,54.609,54.609,,Thortful API diverse face test - Card 6855c0b6
+2025-07-25T11:10:41.037437,diverse_face_02.jpg,target_01.png,66facc0a21fd6d6f34901ae6,diverse_face_02_to_target_01_card_66facc0a_thortful_v4.jpg,v4-thortful,single_face,True,44.716,44.716,,Thortful API diverse face test - Card 66facc0a
+2025-07-25T11:11:20.091427,diverse_face_02.jpg,target_01.png,67816ae75990fc276575cd07,diverse_face_02_to_target_01_card_67816ae7_thortful_v4.jpg,v4-thortful,single_face,True,44.270,44.270,,Thortful API diverse face test - Card 67816ae7
+2025-07-25T11:11:28.475117,diverse_face_02.jpg,target_01.png,66e01c85ded8e0212043629d,diverse_face_02_to_target_01_card_66e01c85_thortful_v4.jpg,v4-thortful,single_face,True,46.421,46.421,,Thortful API diverse face test - Card 66e01c85
+2025-07-25T11:12:07.477376,diverse_face_02.jpg,target_01.png,6855c0b6ebba0773538e8a15,diverse_face_02_to_target_01_card_6855c0b6_thortful_v4.jpg,v4-thortful,single_face,True,46.374,46.374,,Thortful API diverse face test - Card 6855c0b6
+2025-07-25T11:12:22.765778,diverse_face_02.jpg,target_01.png,67d219a67d3f9803484845be,diverse_face_02_to_target_01_card_67d219a6_thortful_v4.jpg,v4-thortful,single_face,True,51.639,51.639,,Thortful API diverse face test - Card 67d219a6
+2025-07-25T11:12:57.812974,diverse_face_02.jpg,target_01.png,66facc0a21fd6d6f34901ae6,diverse_face_02_to_target_01_card_66facc0a_thortful_v4.jpg,v4-thortful,single_face,True,47.977,47.977,,Thortful API diverse face test - Card 66facc0a
+2025-07-25T11:13:23.950947,diverse_face_02.jpg,target_01.png,68497934ad723e68b9792266,gateway_timeout,v4-thortful,single_face,False,gateway_timeout,60.179,Gateway Timeout (504) - V4 processing exceeded gateway limit (~60s),Thortful API diverse face test - Card 68497934
+2025-07-25T11:13:42.327839,diverse_face_02.jpg,target_01.png,66e01c85ded8e0212043629d,diverse_face_02_to_target_01_card_66e01c85_thortful_v4.jpg,v4-thortful,single_face,True,43.504,43.504,,Thortful API diverse face test - Card 66e01c85
+2025-07-25T11:14:26.649394,diverse_face_02.jpg,target_01.png,680b65d36010d4505cbac642,gateway_timeout,v4-thortful,single_face,False,gateway_timeout,60.129,Gateway Timeout (504) - V4 processing exceeded gateway limit (~60s),Thortful API diverse face test - Card 680b65d3
+2025-07-25T11:14:28.613138,diverse_face_02.jpg,target_01.png,67d219a67d3f9803484845be,diverse_face_02_to_target_01_card_67d219a6_thortful_v4.jpg,v4-thortful,single_face,True,43.715,43.715,,Thortful API diverse face test - Card 67d219a6
+2025-07-25T11:15:09.532265,diverse_face_02.jpg,target_01.png,6854af2294654d25b467e33b,diverse_face_02_to_target_01_card_6854af22_thortful_v4.jpg,v4-thortful,single_face,True,41.870,41.870,,Thortful API diverse face test - Card 6854af22
+2025-07-25T11:15:14.628504,diverse_face_02.jpg,target_01.png,68497934ad723e68b9792266,diverse_face_02_to_target_01_card_68497934_thortful_v4.jpg,v4-thortful,single_face,True,45.003,45.003,,Thortful API diverse face test - Card 68497934
+2025-07-25T11:15:54.669412,diverse_face_02.jpg,target_01.png,68097dd5b46c0a5b4e3543f8,diverse_face_02_to_target_01_card_68097dd5_thortful_v4.jpg,v4-thortful,single_face,True,42.924,42.924,,Thortful API diverse face test - Card 68097dd5
+2025-07-25T11:16:03.127805,diverse_face_02.jpg,target_01.png,680b65d36010d4505cbac642,diverse_face_02_to_target_01_card_680b65d3_thortful_v4.jpg,v4-thortful,single_face,True,46.337,46.337,,Thortful API diverse face test - Card 680b65d3
+2025-07-25T11:16:39.951077,diverse_face_02.jpg,target_01.png,680b635ab4259a1b1933d009,diverse_face_02_to_target_01_card_680b635a_thortful_v4.jpg,v4-thortful,single_face,True,44.270,44.270,,Thortful API diverse face test - Card 680b635a
+2025-07-25T11:16:48.908300,diverse_face_02.jpg,target_01.png,6854af2294654d25b467e33b,diverse_face_02_to_target_01_card_6854af22_thortful_v4.jpg,v4-thortful,single_face,True,44.767,44.767,,Thortful API diverse face test - Card 6854af22
+2025-07-25T11:17:26.612759,diverse_face_02.jpg,target_01.png,67a5f37990a11d443906b288,diverse_face_02_to_target_01_card_67a5f379_thortful_v4.jpg,v4-thortful,single_face,True,44.193,44.193,,Thortful API diverse face test - Card 67a5f379
+2025-07-25T11:17:36.475579,diverse_face_02.jpg,target_01.png,68097dd5b46c0a5b4e3543f8,diverse_face_02_to_target_01_card_68097dd5_thortful_v4.jpg,v4-thortful,single_face,True,45.353,45.353,,Thortful API diverse face test - Card 68097dd5
+2025-07-25T11:18:20.009829,diverse_face_02.jpg,target_01.png,680b635ab4259a1b1933d009,diverse_face_02_to_target_01_card_680b635a_thortful_v4.jpg,v4-thortful,single_face,True,42.523,42.523,,Thortful API diverse face test - Card 680b635a
+2025-07-25T11:18:27.801033,diverse_face_02.jpg,target_01.png,6855c9e992228930bed19c3f,gateway_timeout,v4-thortful,single_face,False,gateway_timeout,60.180,Gateway Timeout (504) - V4 processing exceeded gateway limit (~60s),Thortful API diverse face test - Card 6855c9e9
+2025-07-25T11:19:22.488021,diverse_face_02.jpg,target_01.png,67a5f37990a11d443906b288,gateway_timeout,v4-thortful,single_face,False,gateway_timeout,60.142,Gateway Timeout (504) - V4 processing exceeded gateway limit (~60s),Thortful API diverse face test - Card 67a5f379
+2025-07-25T11:19:30.204260,diverse_face_02.jpg,target_01.png,68470d697fd84e35a7c920ea,gateway_timeout,v4-thortful,single_face,False,gateway_timeout,60.168,Gateway Timeout (504) - V4 processing exceeded gateway limit (~60s),Thortful API diverse face test - Card 68470d69
+2025-07-25T11:20:06.814284,diverse_face_02.jpg,target_01.png,6855c9e992228930bed19c3f,diverse_face_02_to_target_01_card_6855c9e9_thortful_v4.jpg,v4-thortful,single_face,True,43.314,43.314,,Thortful API diverse face test - Card 6855c9e9
+2025-07-25T11:20:31.391680,diverse_face_02.jpg,target_01.png,67c6da4db6fbc326d4bcaafb,gateway_timeout,v4-thortful,single_face,False,gateway_timeout,60.183,Gateway Timeout (504) - V4 processing exceeded gateway limit (~60s),Thortful API diverse face test - Card 67c6da4d
+2025-07-25T11:21:03.501448,diverse_face_02.jpg,target_01.png,68470d697fd84e35a7c920ea,diverse_face_02_to_target_01_card_68470d69_thortful_v4.jpg,v4-thortful,single_face,True,54.406,54.406,,Thortful API diverse face test - Card 68470d69
+2025-07-25T11:21:16.393184,diverse_face_02.jpg,target_01.png,680b651fe5a5d97911059508,diverse_face_02_to_target_01_card_680b651f_thortful_v4.jpg,v4-thortful,single_face,True,42.801,42.801,,Thortful API diverse face test - Card 680b651f
+2025-07-25T11:21:50.004232,diverse_face_02.jpg,target_01.png,67c6da4db6fbc326d4bcaafb,diverse_face_02_to_target_01_card_67c6da4d_thortful_v4.jpg,v4-thortful,single_face,True,45.490,45.490,,Thortful API diverse face test - Card 67c6da4d
+2025-07-25T11:22:01.087922,diverse_face_02.jpg,target_01.png,6806c1a93e7fe4028a4b7cb0,diverse_face_02_to_target_01_card_6806c1a9_thortful_v4.jpg,v4-thortful,single_face,True,43.681,43.681,,Thortful API diverse face test - Card 6806c1a9
+2025-07-25T11:22:35.355545,diverse_face_02.jpg,target_01.png,680b651fe5a5d97911059508,diverse_face_02_to_target_01_card_680b651f_thortful_v4.jpg,v4-thortful,single_face,True,42.972,42.972,,Thortful API diverse face test - Card 680b651f
+2025-07-25T11:22:46.855262,diverse_face_02.jpg,target_01.png,6815e812b4259a1b1933d422,diverse_face_02_to_target_01_card_6815e812_thortful_v4.jpg,v4-thortful,single_face,True,43.506,43.506,,Thortful API diverse face test - Card 6815e812
+2025-07-25T11:23:18.527109,diverse_face_02.jpg,target_01.png,6806c1a93e7fe4028a4b7cb0,diverse_face_02_to_target_01_card_6806c1a9_thortful_v4.jpg,v4-thortful,single_face,True,42.162,42.162,,Thortful API diverse face test - Card 6806c1a9
+2025-07-25T11:23:31.832637,diverse_face_02.jpg,target_01.png,68470f0a7ecd4e71abd58c2a,diverse_face_02_to_target_01_card_68470f0a_thortful_v4.jpg,v4-thortful,single_face,True,43.965,43.965,,Thortful API diverse face test - Card 68470f0a
+2025-07-25T11:24:03.685674,diverse_face_02.jpg,target_01.png,6815e812b4259a1b1933d422,diverse_face_02_to_target_01_card_6815e812_thortful_v4.jpg,v4-thortful,single_face,True,42.631,42.631,,Thortful API diverse face test - Card 6815e812
+2025-07-25T11:24:17.425026,diverse_face_02.jpg,target_01.png,6806ad073175fb6967ec2768,diverse_face_02_to_target_01_card_6806ad07_thortful_v4.jpg,v4-thortful,single_face,True,43.259,43.259,,Thortful API diverse face test - Card 6806ad07
+2025-07-25T11:24:48.131005,diverse_face_02.jpg,target_01.png,68470f0a7ecd4e71abd58c2a,diverse_face_02_to_target_01_card_68470f0a_thortful_v4.jpg,v4-thortful,single_face,True,43.434,43.434,,Thortful API diverse face test - Card 68470f0a
+2025-07-25T11:25:03.162742,diverse_face_02.jpg,target_01.png,6820935e0e882b1e7d33c35a,diverse_face_02_to_target_01_card_6820935e_thortful_v4.jpg,v4-thortful,single_face,True,44.731,44.731,,Thortful API diverse face test - Card 6820935e
+2025-07-25T11:25:33.124325,diverse_face_02.jpg,target_01.png,6806ad073175fb6967ec2768,diverse_face_02_to_target_01_card_6806ad07_thortful_v4.jpg,v4-thortful,single_face,True,42.627,42.627,,Thortful API diverse face test - Card 6806ad07
+2025-07-25T11:25:50.309498,diverse_face_02.jpg,target_01.png,66e450c1e69c5e3a7f18b418,diverse_face_02_to_target_01_card_66e450c1_thortful_v4.jpg,v4-thortful,single_face,True,44.861,44.861,,Thortful API diverse face test - Card 66e450c1
+2025-07-25T11:26:17.223310,diverse_face_02.jpg,target_01.png,6820935e0e882b1e7d33c35a,diverse_face_02_to_target_01_card_6820935e_thortful_v4.jpg,v4-thortful,single_face,True,43.085,43.085,,Thortful API diverse face test - Card 6820935e
+2025-07-25T11:26:51.602879,diverse_face_02.jpg,target_01.png,66ea83ce2975504ebe65683b,gateway_timeout,v4-thortful,single_face,False,gateway_timeout,60.286,Gateway Timeout (504) - V4 processing exceeded gateway limit (~60s),Thortful API diverse face test - Card 66ea83ce
+2025-07-25T11:27:02.793812,diverse_face_02.jpg,target_01.png,66e450c1e69c5e3a7f18b418,diverse_face_02_to_target_01_card_66e450c1_thortful_v4.jpg,v4-thortful,single_face,True,43.040,43.040,,Thortful API diverse face test - Card 66e450c1
+2025-07-25T11:27:48.161803,diverse_face_02.jpg,target_01.png,66ea83ce2975504ebe65683b,diverse_face_02_to_target_01_card_66ea83ce_thortful_v4.jpg,v4-thortful,single_face,True,44.358,44.358,,Thortful API diverse face test - Card 66ea83ce
+2025-07-25T11:27:53.973955,diverse_face_02.jpg,target_01.png,67a22d9106eb6b5e764650bc,gateway_timeout,v4-thortful,single_face,False,gateway_timeout,60.174,Gateway Timeout (504) - V4 processing exceeded gateway limit (~60s),Thortful API diverse face test - Card 67a22d91
+2025-07-25T11:28:38.748691,diverse_face_02.jpg,target_01.png,68097b1dbb56f6239add6126,diverse_face_02_to_target_01_card_68097b1d_thortful_v4.jpg,v4-thortful,single_face,True,43.758,43.758,,Thortful API diverse face test - Card 68097b1d
+2025-07-25T11:28:50.631763,diverse_face_02.jpg,target_01.png,67a22d9106eb6b5e764650bc,diverse_face_02_to_target_01_card_67a22d91_thortful_v4.jpg,v4-thortful,single_face,True,60.109,60.109,,Thortful API diverse face test - Card 67a22d91
+2025-07-25T11:29:23.555173,diverse_face_02.jpg,target_01.png,678e67f42c87c917d7245ad0,diverse_face_02_to_target_01_card_678e67f4_thortful_v4.jpg,v4-thortful,single_face,True,42.538,42.538,,Thortful API diverse face test - Card 678e67f4
+2025-07-25T11:29:34.715727,diverse_face_02.jpg,target_01.png,68097b1dbb56f6239add6126,diverse_face_02_to_target_01_card_68097b1d_thortful_v4.jpg,v4-thortful,single_face,True,43.070,43.070,,Thortful API diverse face test - Card 68097b1d
+2025-07-25T11:30:21.757063,diverse_face_02.jpg,target_01.png,678e67f42c87c917d7245ad0,diverse_face_02_to_target_01_card_678e67f4_thortful_v4.jpg,v4-thortful,single_face,True,44.583,44.583,,Thortful API diverse face test - Card 678e67f4
+2025-07-25T11:30:24.785624,diverse_face_02.jpg,target_01.png,67c5d88150ca0b7dedab7d56,gateway_timeout,v4-thortful,single_face,False,gateway_timeout,60.218,Gateway Timeout (504) - V4 processing exceeded gateway limit (~60s),Thortful API diverse face test - Card 67c5d881
+2025-07-25T11:31:21.672921,diverse_face_02.jpg,target_01.png,67c5d88150ca0b7dedab7d56,diverse_face_02_to_target_01_card_67c5d881_thortful_v4.jpg,v4-thortful,single_face,True,58.906,58.906,,Thortful API diverse face test - Card 67c5d881
+2025-07-25T11:31:27.257718,diverse_face_02.jpg,target_02.png,67816ae75990fc276575cd07,gateway_timeout,v4-thortful,single_face,False,gateway_timeout,60.121,Gateway Timeout (504) - V4 processing exceeded gateway limit (~60s),Thortful API diverse face test - Card 67816ae7
+2025-07-25T11:32:07.014842,diverse_face_02.jpg,target_02.png,67816ae75990fc276575cd07,diverse_face_02_to_target_02_card_67816ae7_thortful_v4.jpg,v4-thortful,single_face,True,43.138,43.138,,Thortful API diverse face test - Card 67816ae7
+2025-07-25T11:32:28.388899,diverse_face_02.jpg,target_02.png,6855c0b6ebba0773538e8a15,exception,v4-thortful,single_face,False,exception,60.124,[Errno 32] Broken pipe,Thortful API diverse face test - Card 6855c0b6
+2025-07-25T11:32:51.485810,diverse_face_02.jpg,target_02.png,6855c0b6ebba0773538e8a15,diverse_face_02_to_target_02_card_6855c0b6_thortful_v4.jpg,v4-thortful,single_face,True,43.456,43.456,,Thortful API diverse face test - Card 6855c0b6
+2025-07-25T11:33:13.014363,diverse_face_02.jpg,target_02.png,66facc0a21fd6d6f34901ae6,exception,v4-thortful,single_face,False,exception,43.548,[Errno 32] Broken pipe,Thortful API diverse face test - Card 66facc0a
+2025-07-25T11:33:37.485735,diverse_face_02.jpg,target_02.png,66facc0a21fd6d6f34901ae6,diverse_face_02_to_target_02_card_66facc0a_thortful_v4.jpg,v4-thortful,single_face,True,43.596,43.596,,Thortful API diverse face test - Card 66facc0a
+2025-07-25T11:33:56.874508,diverse_face_02.jpg,target_02.png,66e01c85ded8e0212043629d,exception,v4-thortful,single_face,False,exception,42.853,[Errno 32] Broken pipe,Thortful API diverse face test - Card 66e01c85
+2025-07-25T11:34:20.898783,diverse_face_02.jpg,target_02.png,66e01c85ded8e0212043629d,diverse_face_02_to_target_02_card_66e01c85_thortful_v4.jpg,v4-thortful,single_face,True,42.400,42.400,,Thortful API diverse face test - Card 66e01c85
+2025-07-25T11:34:58.108923,diverse_face_02.jpg,target_02.png,67d219a67d3f9803484845be,gateway_timeout,v4-thortful,single_face,False,gateway_timeout,60.141,Gateway Timeout (504) - V4 processing exceeded gateway limit (~60s),Thortful API diverse face test - Card 67d219a6
+2025-07-25T11:35:06.109566,diverse_face_02.jpg,target_02.png,67d219a67d3f9803484845be,diverse_face_02_to_target_02_card_67d219a6_thortful_v4.jpg,v4-thortful,single_face,True,42.679,42.679,,Thortful API diverse face test - Card 67d219a6
+2025-07-25T11:35:57.678732,diverse_face_02.jpg,target_02.png,68497934ad723e68b9792266,exception,v4-thortful,single_face,False,exception,58.562,[Errno 32] Broken pipe,Thortful API diverse face test - Card 68497934
+2025-07-25T11:36:03.573063,diverse_face_02.jpg,target_02.png,68497934ad723e68b9792266,diverse_face_02_to_target_02_card_68497934_thortful_v4.jpg,v4-thortful,single_face,True,56.450,56.450,,Thortful API diverse face test - Card 68497934
+2025-07-25T11:36:42.409193,diverse_face_02.jpg,target_02.png,680b65d36010d4505cbac642,exception,v4-thortful,single_face,False,exception,43.658,[Errno 32] Broken pipe,Thortful API diverse face test - Card 680b65d3
+2025-07-25T11:36:50.046608,diverse_face_02.jpg,target_02.png,680b65d36010d4505cbac642,diverse_face_02_to_target_02_card_680b65d3_thortful_v4.jpg,v4-thortful,single_face,True,44.188,44.188,,Thortful API diverse face test - Card 680b65d3
+2025-07-25T11:37:26.954957,diverse_face_02.jpg,target_02.png,6854af2294654d25b467e33b,exception,v4-thortful,single_face,False,exception,43.538,[Errno 32] Broken pipe,Thortful API diverse face test - Card 6854af22
+2025-07-25T11:37:35.979334,diverse_face_02.jpg,target_02.png,6854af2294654d25b467e33b,diverse_face_02_to_target_02_card_6854af22_thortful_v4.jpg,v4-thortful,single_face,True,44.918,44.918,,Thortful API diverse face test - Card 6854af22
+2025-07-25T11:38:10.331812,diverse_face_02.jpg,target_02.png,68097dd5b46c0a5b4e3543f8,exception,v4-thortful,single_face,False,exception,42.294,[Errno 32] Broken pipe,Thortful API diverse face test - Card 68097dd5
+2025-07-25T11:38:22.010162,diverse_face_02.jpg,target_02.png,68097dd5b46c0a5b4e3543f8,diverse_face_02_to_target_02_card_68097dd5_thortful_v4.jpg,v4-thortful,single_face,True,43.692,43.692,,Thortful API diverse face test - Card 68097dd5
+2025-07-25T11:38:23.189113,diverse_face_02.jpg,target_02.png,680b635ab4259a1b1933d009,error,v4-thortful,single_face,False,error,0.170,HTTP 403: ,Thortful API diverse face test - Card 680b635a
+2025-07-25T11:38:25.645987,diverse_face_02.jpg,target_02.png,67a5f37990a11d443906b288,error,v4-thortful,single_face,False,error,0.200,HTTP 403: ,Thortful API diverse face test - Card 67a5f379
+2025-07-25T11:38:26.830910,diverse_face_02.jpg,target_02.png,6855c9e992228930bed19c3f,error,v4-thortful,single_face,False,error,0.178,HTTP 403: ,Thortful API diverse face test - Card 6855c9e9
+2025-07-25T11:38:29.026717,diverse_face_02.jpg,target_02.png,68470d697fd84e35a7c920ea,error,v4-thortful,single_face,False,error,0.135,HTTP 403: ,Thortful API diverse face test - Card 68470d69
+2025-07-25T11:38:30.226738,diverse_face_02.jpg,target_02.png,67c6da4db6fbc326d4bcaafb,error,v4-thortful,single_face,False,error,0.194,HTTP 403: ,Thortful API diverse face test - Card 67c6da4d
+2025-07-25T11:38:32.464257,diverse_face_02.jpg,target_02.png,680b651fe5a5d97911059508,error,v4-thortful,single_face,False,error,0.208,HTTP 403: ,Thortful API diverse face test - Card 680b651f
+2025-07-25T11:38:33.622692,diverse_face_02.jpg,target_02.png,6806c1a93e7fe4028a4b7cb0,error,v4-thortful,single_face,False,error,0.153,HTTP 403: ,Thortful API diverse face test - Card 6806c1a9
+2025-07-25T11:38:35.986607,diverse_face_02.jpg,target_02.png,6815e812b4259a1b1933d422,error,v4-thortful,single_face,False,error,0.195,HTTP 403: ,Thortful API diverse face test - Card 6815e812
+2025-07-25T11:38:37.200181,diverse_face_02.jpg,target_02.png,68470f0a7ecd4e71abd58c2a,error,v4-thortful,single_face,False,error,0.206,HTTP 403: ,Thortful API diverse face test - Card 68470f0a
+2025-07-25T11:38:39.347201,diverse_face_02.jpg,target_02.png,6806ad073175fb6967ec2768,error,v4-thortful,single_face,False,error,0.156,HTTP 403: ,Thortful API diverse face test - Card 6806ad07
+2025-07-31T13:06:41.317443,diverse_face_01.jpg,card_template_01,67816ae75990fc276575cd07,error,v4-thortful,single_face,False,error,0.147,HTTP 403: ,Thortful API diverse face test - card_template_01
+2025-07-31T13:19:21.332085,diverse_face_01.jpg,card_template_01,67816ae75990fc276575cd07,diverse_face_01_to_target_01_card_67816ae7_thortful_v4.jpg,v4-thortful,single_face,True,50.015,50.015,,Thortful API diverse face test - card_template_01
+2025-07-31T13:26:44.191444,diverse_face_02.jpg,card_template_01,67816ae75990fc276575cd07,diverse_face_02_to_target_01_card_67816ae7_thortful_v4.jpg,v4-thortful,single_face,True,47.302,47.302,,Thortful API diverse face test - card_template_01
+2025-07-31T14:14:43.960160,diverse_face_01.jpg,card_template_01,67816ae75990fc276575cd07,diverse_face_01_to_target_01_card_67816ae7_thortful_v4.jpg,v4-thortful,single_face,True,88.687,88.687,,Thortful API diverse face test - card_template_01
+2025-07-31T14:15:47.561830,diverse_face_01.jpg,card_template_02,6855c0b6ebba0773538e8a15,diverse_face_01_to_target_02_card_6855c0b6_thortful_v4.jpg,v4-thortful,single_face,True,52.059,52.059,,Thortful API diverse face test - card_template_02
+2025-07-31T14:16:48.188233,diverse_face_04.jpg,card_template_01,67816ae75990fc276575cd07,diverse_face_04_to_target_01_card_67816ae7_thortful_v4.jpg,v4-thortful,single_face,True,51.049,51.049,,Thortful API diverse face test - card_template_01
+2025-07-31T14:17:46.443744,diverse_face_04.jpg,card_template_02,6855c0b6ebba0773538e8a15,diverse_face_04_to_target_02_card_6855c0b6_thortful_v4.jpg,v4-thortful,single_face,True,48.590,48.590,,Thortful API diverse face test - card_template_02
+2025-07-31T14:18:37.680444,diverse_face_05.jpg,card_template_01,67816ae75990fc276575cd07,diverse_face_05_to_target_01_card_67816ae7_thortful_v4.jpg,v4-thortful,single_face,True,51.047,51.047,,Thortful API diverse face test - card_template_01
+2025-07-31T14:20:44.011361,diverse_face_05.jpg,card_template_02,6855c0b6ebba0773538e8a15,diverse_face_05_to_target_02_card_6855c0b6_thortful_v4.jpg,v4-thortful,single_face,True,46.359,46.359,,Thortful API diverse face test - card_template_02
+2025-07-31T14:21:37.617963,diverse_face_06.jpg,card_template_01,67816ae75990fc276575cd07,diverse_face_06_to_target_01_card_67816ae7_thortful_v4.jpg,v4-thortful,single_face,True,46.442,46.442,,Thortful API diverse face test - card_template_01
+2025-07-31T14:22:32.442249,diverse_face_06.jpg,card_template_02,6855c0b6ebba0773538e8a15,diverse_face_06_to_target_02_card_6855c0b6_thortful_v4.jpg,v4-thortful,single_face,True,48.168,48.168,,Thortful API diverse face test - card_template_02
+2025-07-31T14:23:29.047010,diverse_face_07.jpg,card_template_01,67816ae75990fc276575cd07,diverse_face_07_to_target_01_card_67816ae7_thortful_v4.jpg,v4-thortful,single_face,True,49.111,49.111,,Thortful API diverse face test - card_template_01
+2025-07-31T14:24:25.193210,diverse_face_07.jpg,card_template_02,6855c0b6ebba0773538e8a15,diverse_face_07_to_target_02_card_6855c0b6_thortful_v4.jpg,v4-thortful,single_face,True,47.582,47.582,,Thortful API diverse face test - card_template_02
+2025-07-31T14:25:11.384343,diverse_face_08.jpg,card_template_01,67816ae75990fc276575cd07,diverse_face_08_to_target_01_card_67816ae7_thortful_v4.jpg,v4-thortful,single_face,True,46.049,46.049,,Thortful API diverse face test - card_template_01
+2025-07-31T14:27:25.993504,diverse_face_08.jpg,card_template_02,6855c0b6ebba0773538e8a15,diverse_face_08_to_target_02_card_6855c0b6_thortful_v4.jpg,v4-thortful,single_face,True,49.153,49.153,,Thortful API diverse face test - card_template_02
+2025-07-31T14:28:26.587863,diverse_face_09.jpg,card_template_01,67816ae75990fc276575cd07,diverse_face_09_to_target_01_card_67816ae7_thortful_v4.jpg,v4-thortful,single_face,True,53.987,53.987,,Thortful API diverse face test - card_template_01
+2025-07-31T14:29:27.265126,diverse_face_09.jpg,card_template_02,6855c0b6ebba0773538e8a15,diverse_face_09_to_target_02_card_6855c0b6_thortful_v4.jpg,v4-thortful,single_face,True,53.189,53.189,,Thortful API diverse face test - card_template_02

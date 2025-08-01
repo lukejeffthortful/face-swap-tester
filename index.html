@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Face Swap API Testing Dashboard</title>
+    <title>Face Swap Testing Suite</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui;
             margin: 0;
-            padding: 40px 20px;
+            padding: 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            color: white;
+            color: #333;
         }
 
         .container {
@@ -20,239 +20,362 @@
         }
 
         .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 40px;
             text-align: center;
-            margin-bottom: 60px;
+            backdrop-filter: blur(10px);
         }
 
-        .header h1 {
-            font-size: 3.5rem;
-            margin: 0 0 20px 0;
-            font-weight: 700;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .header p {
-            font-size: 1.3rem;
-            opacity: 0.9;
+        h1 {
+            font-size: 3em;
             margin: 0;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .dashboard-grid {
+        .subtitle {
+            color: #666;
+            font-size: 1.3em;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #777;
+            font-size: 1.1em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
         }
 
-        .test-card {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            color: #1d1d1f;
-        }
-
-        .test-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .test-card h2 {
-            margin: 0 0 15px 0;
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #1d1d1f;
-        }
-
-        .test-card p {
-            margin: 0 0 20px 0;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .test-type {
-            display: inline-block;
-            padding: 6px 12px;
+        .testing-category {
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .testing-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .category-icon {
+            font-size: 3em;
+            text-align: center;
             margin-bottom: 20px;
         }
 
-        .multi-face {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-        }
-
-        .single-face {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
-            color: white;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .stat-item {
+        .category-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #2c3e50;
             text-align: center;
-            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .category-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .test-types {
+            display: grid;
+            gap: 15px;
+        }
+
+        .test-type {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+            transition: all 0.2s ease;
+        }
+
+        .test-type:hover {
+            background: #e3f2fd;
+            border-left-color: #2196f3;
+        }
+
+        .test-type-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .test-type-description {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+
+        .test-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .test-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+
+        .test-link:hover {
+            background: #2980b9;
+        }
+
+        .test-link.secondary {
+            background: #95a5a6;
+        }
+
+        .test-link.secondary:hover {
+            background: #7f8c8d;
+        }
+
+        .info-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .info-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
             background: #f8f9fa;
             border-radius: 8px;
         }
 
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #007AFF;
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .view-button {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #007AFF, #0056CC);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            text-align: center;
-            transition: background 0.3s ease;
-        }
-
-        .view-button:hover {
-            background: linear-gradient(135deg, #0056CC, #004099);
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 60px;
-            opacity: 0.8;
-        }
-
-        .footer p {
-            margin: 0;
-            font-size: 0.9rem;
+        .feature-icon {
+            font-size: 1.5em;
+            margin-right: 12px;
         }
 
         .status-indicator {
             display: inline-block;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin-right: 8px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-left: 10px;
         }
 
-        .status-complete {
-            background: #28a745;
+        .status-active {
+            background: #d4edda;
+            color: #155724;
         }
 
-        .status-partial {
-            background: #ffc107;
+        .status-beta {
+            background: #fff3cd;
+            color: #856404;
         }
 
-        .status-incomplete {
-            background: #dc3545;
+        .legacy-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        @media (max-width: 768px) {
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .header h1 {
-                font-size: 2.5rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
+        .legacy-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #6c757d;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .legacy-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .legacy-link {
+            padding: 8px 16px;
+            background: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9em;
+            transition: background 0.2s ease;
+        }
+
+        .legacy-link:hover {
+            background: #5a6268;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>⚔️ Face Swap API Testing</h1>
-            <p>Comprehensive comparison testing for Segmind Face Swap APIs</p>
-        </div>
-
-        <div class="dashboard-grid">
-            <!-- Multi-Face Testing Card -->
-            <div class="test-card">
-                <div class="test-type multi-face">Multi-Face Testing</div>
-                <h2>v2 vs v4.3 Comparison</h2>
-                <p>Complete face swapping with all detected faces using left-to-right detection order. Direct comparison between v2 and v4.3 multi-face capabilities.</p>
-                
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-number">18</div>
-                        <div class="stat-label">Combinations</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">6</div>
-                        <div class="stat-label">Target Images</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">18/16</div>
-                        <div class="stat-label">v2/v4.3 Results</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">
-                            <span class="status-indicator status-partial"></span>94.4%
-                        </div>
-                        <div class="stat-label">Completion</div>
-                    </div>
-                </div>
-
-                <a href="multiface_comparison.html" class="view-button">View Multi-Face Results</a>
-            </div>
-
-            <!-- Single-Face Testing Card -->
-            <div class="test-card">
-                <div class="test-type single-face">Single-Face Testing</div>
-                <h2>v2 vs v4 Comparison</h2>
-                <p>Focused single-face swapping using face index 0 only. Tests precision and speed for targeted face replacement scenarios.</p>
-                
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-number">40</div>
-                        <div class="stat-label">Combinations</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">4</div>
-                        <div class="stat-label">Source Images</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">40/40</div>
-                        <div class="stat-label">v2/v4 Results</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">
-                            <span class="status-indicator status-complete"></span>100%
-                        </div>
-                        <div class="stat-label">Completion</div>
-                    </div>
-                </div>
-
-                <a href="single_face_comparison.html" class="view-button">View Single-Face Results</a>
+            <h1>🎭 Face Swap Testing Suite</h1>
+            <div class="subtitle">Comprehensive API Testing & Verification Platform</div>
+            <div class="description">
+                Professional testing suite for face swap APIs with automated batch processing, 
+                technical verification, and detailed result analysis. Supports both single face 
+                and multi-face testing scenarios with comprehensive logging and review capabilities.
             </div>
         </div>
 
-        <div class="footer">
-            <p>🔬 Testing infrastructure for evaluating face swap API performance and quality</p>
-            <p>Last updated: July 2025</p>
+        <div class="testing-grid">
+            <div class="testing-category">
+                <div class="category-icon">👤</div>
+                <div class="category-title">Single Face Testing</div>
+                <div class="category-description">
+                    Test individual face swaps with comprehensive batch processing and technical verification
+                </div>
+                
+                <div class="test-types">
+                    <div class="test-type">
+                        <div class="test-type-title">Batch Tests <span class="status-indicator status-active">Active</span></div>
+                        <div class="test-type-description">
+                            Comprehensive testing of diverse source faces against multiple card templates. 
+                            Includes automated processing, result logging, and performance metrics.
+                        </div>
+                        <div class="test-links">
+                            <a href="single-face-testing/batch-tests/review.html" class="test-link">📊 View Results</a>
+                            <a href="single-face-testing/batch-tests/scripts/run_batch_tests.py" class="test-link secondary">📜 Script</a>
+                        </div>
+                    </div>
+                    
+                    <div class="test-type">
+                        <div class="test-type-title">Technical Verification <span class="status-indicator status-active">Active</span></div>
+                        <div class="test-type-description">
+                            Quick verification tests to ensure API functionality and system health. 
+                            Perfect for troubleshooting and system status checks.
+                        </div>
+                        <div class="test-links">
+                            <a href="single-face-testing/technical-verification/review.html" class="test-link">🔍 View Results</a>
+                            <a href="single-face-testing/technical-verification/scripts/verify_single_test.py" class="test-link secondary">📜 Script</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testing-category">
+                <div class="category-icon">👥</div>
+                <div class="category-title">Multi Face Testing</div>
+                <div class="category-description">
+                    Advanced testing for multiple face detection and swapping with API version comparisons
+                </div>
+                
+                <div class="test-types">
+                    <div class="test-type">
+                        <div class="test-type-title">Batch Tests <span class="status-indicator status-active">Active</span></div>
+                        <div class="test-type-description">
+                            Comprehensive multi-face testing with V2 vs V4.3 API comparisons. 
+                            Includes face index testing and performance analysis.
+                        </div>
+                        <div class="test-links">
+                            <a href="multi-face-testing/batch-tests/review.html" class="test-link">📊 View Results</a>
+                            <a href="multi-face-testing/batch-tests/scripts/continue_multiface_v43_with_logging.py" class="test-link secondary">📜 Script</a>
+                        </div>
+                    </div>
+                    
+                    <div class="test-type">
+                        <div class="test-type-title">Technical Verification <span class="status-indicator status-active">Active</span></div>
+                        <div class="test-type-description">
+                            Quick multi-face API verification with face detection validation. 
+                            Tests multiple face indices and API response formats.
+                        </div>
+                        <div class="test-links">
+                            <a href="multi-face-testing/technical-verification/review.html" class="test-link">🔍 View Results</a>
+                            <a href="multi-face-testing/technical-verification/scripts/continue_multiface_v2_only.py" class="test-link secondary">📜 Script</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <div class="info-title">🚀 Platform Features</div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div>Real-time result visualization</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔄</div>
+                    <div>Automated batch processing</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📈</div>
+                    <div>Performance metrics & analytics</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔍</div>
+                    <div>Technical verification tools</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📋</div>
+                    <div>Comprehensive logging</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <div>API version comparisons</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div>Fast result processing</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <div>Error handling & recovery</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="legacy-section">
+            <div class="legacy-title">📁 Legacy Testing Results</div>
+            <div class="legacy-links">
+                <a href="multiface_comparison.html" class="legacy-link">Multi-Face v2 vs v4.3</a>
+                <a href="single_face_comparison.html" class="legacy-link">Single-Face v2 vs v4</a>
+                <a href="face_swap_comparison.html" class="legacy-link">Original Comparison</a>
+            </div>
         </div>
     </div>
 </body>

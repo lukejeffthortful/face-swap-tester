@@ -40,36 +40,10 @@
 }
 ```
 
-## 🚨 CRITICAL: HTML Results Testing Protocol
-
-**ALWAYS test HTML review pages before announcing completion!**
-
-When generating or updating HTML review pages for test results:
-
-1. **Create test verification script** to check HTML displays correctly
-2. **Verify CSV data loading** - ensure JavaScript can access log files  
-3. **Test result rendering** - confirm images and data appear properly
-4. **Check file paths** - verify all links and image references work
-5. **Run validation** before declaring the feature complete
-
-### Required HTML Testing Steps:
-```bash
-# 1. Test HTML can load CSV data
-python3 verify_review_html.py --csv-test
-
-# 2. Test result images are accessible  
-python3 verify_review_html.py --image-test
-
-# 3. Test full HTML rendering
-python3 verify_review_html.py --full-test
-```
-
-**Never announce HTML review completion without verification!**
-
 ## How to Run Tests
 
 ### Thortful Single Face Tests (V4)
-- **Main file:** `thortful-v4-single-face/run_thortful_face_swap_tests.py`
+- **Main file:** `thortful-v4-single-face/thortful_test_single_face.py`
 - **Auth file:** `thortful_auth.py` (project root)
 - **Working endpoint:** `https://www.thortful.com/api/v1/faceswap?variation=true`
 - **Features:**
@@ -81,10 +55,10 @@ python3 verify_review_html.py --full-test
 - **Usage:**
   ```bash
   # Single test
-  python3 run_thortful_face_swap_tests.py --single source-images/diverse_face_01.jpg target-images/target_01.png [card_id]
+  python3 thortful_test_single_face.py --single diverse-source-images/diverse_face_01.jpg target-images/target_01.png [card_id]
   
   # Full batch test
-  python3 run_thortful_face_swap_tests.py
+  python3 thortful_test_single_face.py
   ```
 - **⚠️ IMPORTANT:** All requests use 180s timeout due to heavy AI processing requirements
 
