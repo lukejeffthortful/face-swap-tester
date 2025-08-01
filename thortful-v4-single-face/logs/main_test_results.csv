@@ -196,3 +196,12 @@ timestamp,source_image,target_image,card_id,result_image,api_version,test_type,s
 2025-08-01T11:38:09.092585,diverse_face_01.jpg,card_template_18,68470f0a7ecd4e71abd58c2a,diverse_face_01_to_target_02_card_68470f0a_thortful_v4.jpg,v4-thortful,single_face,True,45.974,45.974,,Thortful API diverse face test - card_template_18
 2025-08-01T11:38:59.125788,diverse_face_01.jpg,card_template_19,6806ad073175fb6967ec2768,diverse_face_01_to_target_02_card_6806ad07_thortful_v4.jpg,v4-thortful,single_face,True,47.492,47.492,,Thortful API diverse face test - card_template_19
 2025-08-01T11:39:47.108094,diverse_face_01.jpg,card_template_20,6820935e0e882b1e7d33c35a,diverse_face_01_to_target_02_card_6820935e_thortful_v4.jpg,v4-thortful,single_face,True,46.958,46.958,,Thortful API diverse face test - card_template_20
+2025-08-01T11:40:38.293410,diverse_face_01.jpg,card_template_21,66e450c1e69c5e3a7f18b418,diverse_face_01_to_target_02_card_66e450c1_thortful_v4.jpg,v4-thortful,single_face,True,48.579,48.579,,Thortful API diverse face test - card_template_21
+2025-08-01T11:40:40.398505,diverse_face_01.jpg,card_template_22,66ea83ce2975504ebe65683b,error,v4-thortful,single_face,False,error,1.098,"HTTP 502: <html>
+<head><title>502 Bad Gateway</title></head>
+<body>
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>cloudflare</center>
+</body>
+</html>
+",Thortful API diverse face test - card_template_22
