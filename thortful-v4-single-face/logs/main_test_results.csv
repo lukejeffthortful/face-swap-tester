@@ -539,3 +539,5 @@ timestamp,source_image,target_image,card_id,result_image,api_version,test_type,s
 2025-08-01T12:39:42.561432,diverse_face_05.jpg,card_template_14,67c6da4db6fbc326d4bcaafb,diverse_face_05_to_target_01_card_67c6da4d_thortful_v4.jpg,v4-thortful,single_face,True,57.977,57.977,,Thortful API diverse face test - card_template_14
 2025-08-01T12:40:41.488405,diverse_face_05.jpg,card_template_15,680b651fe5a5d97911059508,diverse_face_05_to_target_01_card_680b651f_thortful_v4.jpg,v4-thortful,single_face,True,56.423,56.423,,Thortful API diverse face test - card_template_15
 2025-08-01T12:40:42.786088,diverse_face_05.jpg,card_template_16,6806c1a93e7fe4028a4b7cb0,error,v4-thortful,single_face,False,error,0.286,HTTP 403: ,Thortful API diverse face test - card_template_16
+2025-08-01T12:40:45.285687,diverse_face_05.jpg,card_template_17,6815e812b4259a1b1933d422,error,v4-thortful,single_face,False,error,0.293,HTTP 403: ,Thortful API diverse face test - card_template_17
+2025-08-01T12:40:46.615430,diverse_face_05.jpg,card_template_18,68470f0a7ecd4e71abd58c2a,error,v4-thortful,single_face,False,error,0.318,HTTP 403: ,Thortful API diverse face test - card_template_18
